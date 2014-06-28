@@ -5,7 +5,6 @@ Description: Site specific functions.php for RMCR
 */
 
 /* Custom Post Type: Dog */
-add_action( 'init', 'register_custom_post_type_dog' );
 function register_custom_post_type_dog() {
 	register_post_type( 'dog', array(
 		'label'           => 'Dogs',
@@ -18,7 +17,7 @@ function register_custom_post_type_dog() {
 		'hierarchical'    => false,
 		'rewrite'         => array( 'slug' => 'dogs', 'with_front' => true ),
 		'query_var'       => true,
-		'supports'        => array( 'title', 'excerpt', 'trackbacks', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'post-formats', 'custom-post-templates' ),
+		'supports'        => array( 'title', 'trackbacks', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'post-formats' ),
 		'labels'          => array(
 			'name'               => 'Dogs',
 			'singular_name'      => 'Dog',
@@ -37,3 +36,13 @@ function register_custom_post_type_dog() {
 		)
 	) );
 }
+
+add_action( 'init', 'register_custom_post_type_dog' );
+
+// Custom template for Dog
+function my_cpt_post_types( $post_types ) {
+	$post_types[ ] = 'dog';
+	return $post_types;
+}
+
+add_filter( 'cpt_post_types', 'my_cpt_post_types' );
