@@ -21,7 +21,6 @@ Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 */
-
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -45,6 +44,10 @@ and Blueprint http://www.blueprintcss.org/
 	12.1 - Captions
 	12.2 - Galleries
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+0.0 - Import
+--------------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
 /*--------------------------------------------------------------
 1.0 - Reset
@@ -138,10 +141,19 @@ a img {
 	border: 0;
 }
 
+h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, blockquote,
+p, address, table, fieldset, figure, pre, .post,
+.entry-meta, .entry-head, .entry-content, .comment,
+.comment-navigation, iframe {
+	margin-top: 0;
+	margin-bottom: 24px;
+	margin-bottom: 2.4rem;
+}
+
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-body,
+ body,
 button,
 input,
 select,
@@ -150,7 +162,8 @@ textarea {
 	font-family: Roboto, sans-serif;
 	font-size: 16px;
 	font-size: 1.6rem;
-	line-height: 1.5;
+	line-height: 24px;
+	line-height: 2.4rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -429,7 +442,7 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #9eceb4;
 }
 
 a:visited {
@@ -447,9 +460,10 @@ a:active {
 --------------------------------------------------------------*/
 .main-navigation {
 	clear: both;
+	background-color: tomato;
 	display: block;
-	float: left;
-	width: 100%;
+	float: right;
+	margin-bottom: 2rem;
 }
 
 .main-navigation ul {
@@ -710,7 +724,7 @@ a:active {
 10.5 Header
 --------------------------------------------------------------*/
 #masthead {
-	background: #ffe145;
+	background-image: linear-gradient(#ffe145, #fff3b3);
 }
 
 /*--------------------------------------------------------------
