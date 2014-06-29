@@ -142,9 +142,9 @@ a img {
 }
 
 h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, blockquote,
-p, address, table, fieldset, figure, pre, .post,
-.entry-meta, .entry-head, .entry-content, .comment,
-.comment-navigation, iframe {
+p, address, table, fieldset, figure, pre, .post, .site-header,
+.entry-meta, .entry-head, .entry-title, .entry-content,
+.comment, .comment-navigation, iframe {
 	margin-top: 0;
 	margin-bottom: 24px;
 	margin-bottom: 2.4rem;
@@ -153,7 +153,7 @@ p, address, table, fieldset, figure, pre, .post,
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
- body,
+body,
 button,
 input,
 select,
@@ -271,6 +271,16 @@ big {
 	font-size: 125%;
 }
 
+.entry-title {
+	font-size: 34px;
+	font-size: 3.4rem;
+}
+
+.entry-subtitle {
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+
 /*--------------------------------------------------------------
 3.0 Elements
 --------------------------------------------------------------*/
@@ -303,8 +313,12 @@ dt {
 	font-weight: bold;
 }
 
+.dl-horizontal dt {
+	text-align: left;
+}
+
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 0 0.5em;
 }
 
 img {

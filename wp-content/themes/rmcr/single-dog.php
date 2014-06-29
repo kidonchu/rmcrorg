@@ -11,9 +11,9 @@
 
 <div class="row">
 
-	<div id="primary" class="col-md-9" style="background-color: yellow">
+	<div id="primary" class="col-md-9">
 
-		<main id="content" role="main">
+		<main id="content" class="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

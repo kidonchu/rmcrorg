@@ -46,3 +46,44 @@ function my_cpt_post_types( $post_types ) {
 }
 
 add_filter( 'cpt_post_types', 'my_cpt_post_types' );
+
+// Add filter to choose correct label for status
+add_filter( 'convert_status', function ( $status ) {
+	$html = '';
+	if ( $status ) {
+		switch ( $status ) {
+			case 'Pending':
+				$html = '<span class="label label-danger">PENDING</span>';
+				break;
+			case 'Adoptable':
+				$html = '<span class="label label-success">ADOPTABLE</span>';
+				break;
+			case 'Adopted':
+				$html = '<span class="label label-info">ADOPTED</span>';
+				break;
+		}
+	}
+	return $html;
+} );
+
+// Add filter to convert age integer to string
+add_filter( 'convert_age', function ( $age ) {
+	if ( $age ) {
+		switch ( $age ) {
+			case 1:
+			case 2:
+			case 3:
+				return 'Puppy';
+			case 4:
+			case 5:
+			case 6:
+				return 'Young';
+			case 7:
+			case 9:
+			case 10:
+				return 'Adult';
+			default:
+				return 'Senior';
+		}
+	}
+} );
