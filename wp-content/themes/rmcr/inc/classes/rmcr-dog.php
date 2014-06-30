@@ -72,6 +72,14 @@ class RMCR_Dog {
 		}
 		return '';
 	}
+	
+	public function getNotGoodWithTranslated()
+	{
+		if ($this->getData('not_good_with')) {
+			return implode(', ', $this->getData('not_good_with'));
+		}
+		return '';
+	}
 
 	public function setData( $key, $value ) {
 		$this->_data[ $key ] = $value;

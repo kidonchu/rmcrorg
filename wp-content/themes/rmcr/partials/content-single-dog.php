@@ -23,7 +23,7 @@
 			<div class="row">
 
 				<div class="col-md-6">
-					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<div id="carousel-example-generic" class="carousel slide dog-carousel" data-ride="carousel">
 						<!-- Indicators -->
 						<ol class="carousel-indicators">
 							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -89,27 +89,31 @@
 						<dt>Adoption Fee:</dt>
 						<dd>&dollar;<?php echo $dog->getData( 'adoption_fee' ); ?></dd>
 						<dt>Not Good With:</dt>
-						<dd><?php echo $dog->getData( 'not_good_with' ); ?></dd>
+						<dd><?php echo $dog->getNotGoodWithTranslated(); ?></dd>
 					</dl>
+
+					<?php echo $dog->getAdoptLink() ?>
 
 				</div>
 
-				<?php echo $dog->getAdoptLink() ?>
-
 			</div>
 
-			<h2 class="entry-subtitle">About <?php the_field( 'name' ); ?></h2>
+			<h2 class="entry-subtitle">About <?php echo $dog->getData( 'name' ); ?></h2>
 
-			<p><?php the_field( 'description' ); ?></p>
+			<p><?php echo $dog->getData( 'description' ); ?></p>
 
 			<p>
 				We reserve the right to refuse an adoption to any person for the well-being of the dog.
 			</p>
 
 			<p>
-				Prior to adoption, <?php the_field( 'name' ); ?> will be micro-chipped, neutured and up-to-date on his
-				shots. If you would like to meet Emmitt to see if he is a good fit for your home, please fill out an
-				Adoption Application Online. Emmitt's adoption fee is $<?php the_field( 'adoption_fee' ); ?>.
+				Prior to adoption, <?php echo $dog->getData( 'name' ); ?> will be micro-chipped, neutered, and
+				up-to-date on <?php echo ( $dog->getData( 'gender' ) == 'Male' ) ? 'his' : 'her'; ?> shots.
+				If you would like to meet <?php echo $dog->getData( 'name' ); ?> to see
+				if <?php echo ( $dog->getData( 'gender' ) == 'Male' ) ? 'he' : 'she'; ?>
+				is a good fit for your home, please fill out an <a href="#">Adoption Application</a> online.
+				<?php echo $dog->getData( 'name' ); ?>'s adoption fee is
+				$<?php echo $dog->getData( 'adoption_fee' ); ?>.
 			</p>
 
 			<?php echo $dog->getAdoptLink() ?>

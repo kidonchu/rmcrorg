@@ -201,7 +201,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
 }
 
 b, strong {
@@ -213,11 +212,9 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
 }
 
 address {
-	margin: 0 0 1.5em;
 }
 
 pre {
@@ -707,6 +704,11 @@ a:active {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.dog-carousel {
+	min-height: 225px;
+	max-height: 225px;
 }
 
 /*--------------------------------------------------------------
