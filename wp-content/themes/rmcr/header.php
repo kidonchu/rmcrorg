@@ -6,16 +6,17 @@
  *
  * @package rmcr
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -23,15 +24,30 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rmcr' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		<div class="container">
+			<div class="site-branding">
+				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
+				     alt="<?php bloginfo( 'name' ); ?>">
+
+				<?php
+				wp_nav_menu( array(
+					'container'       => 'nav',
+					'container_class' => 'main-navigation pull-right',
+					'theme_location'  => 'primary',
+					'menu_class'      => 'nav nav-pills pull-right',
+					'depth'           => 3,
+					'fallback_cb'     => false,
+					'walker'          => new The_Bootstrap_Nav_Walker,
+				) ); ?>
+
+				<!--				<h1 class="site-title"><a href="-->
+				<?php //echo esc_url( home_url( '/' ) ); ?><!--"-->
+				<!--				                          rel="home">-->
+				<?php //bloginfo( 'name' ); ?><!--</a></h1>-->
+			</div>
+
 		</div>
+	</header>
+	<!-- #masthead -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'rmcr' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+	<div id="wrapper" class="site-content container">
