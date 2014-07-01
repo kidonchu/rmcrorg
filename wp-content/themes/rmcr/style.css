@@ -157,7 +157,8 @@ body,
 button,
 input,
 select,
-textarea {
+textarea,
+h1, h2, h3, h4, h5, h6 {
 	color: #212121;
 	font-family: Roboto, sans-serif;
 	font-size: 16px;
@@ -281,31 +282,6 @@ big {
 /*--------------------------------------------------------------
 3.0 Elements
 --------------------------------------------------------------*/
-hr {
-	background-color: #cccccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
-}
-
-ul, ol {
-	margin: 0 0 1.5em 3em;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-}
-
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-
 dt {
 	font-weight: bold;
 }
@@ -734,6 +710,16 @@ a:active {
 --------------------------------------------------------------*/
 .sidebar {
 	background: #cccccc;
+	border-radius: 10px;
+	border-radius: 1.2rem;
+	padding: 24px 12px;
+	padding: 2.4rem 1.2rem;
+}
+
+.sidebar .gce-list {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
 }
 
 /*--------------------------------------------------------------
@@ -746,8 +732,32 @@ a:active {
 /*--------------------------------------------------------------
 10.6 Footer
 --------------------------------------------------------------*/
-#mastfooter {
+.site-footer {
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+
+.main-footer {
 	background: #b5227f;
+	border-radius: 10px;
+	border-radius: 1.2rem;
+}
+
+.footer-widget {
+	padding-top: 24px;
+	padding-top: 2.4rem;
+}
+
+.footer-widget ul {
+	list-style: none;
+	margin: 0 0 24px 0;
+	margin: 0 0 2.4rem 0;
+}
+
+.footer-widget .widget-title {
+	font-size: 14px;
+	font-size: 1.4rem;
+	margin: 0;
 }
 
 /*--------------------------------------------------------------
