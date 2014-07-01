@@ -1,13 +1,13 @@
 <?php
 
-class Rmcr_Donation_Banner_Widget extends WP_Widget {
+class Rmcr_Adoption_Banner_Widget extends WP_Widget {
 
 	public function __construct() {
 		parent::__construct(
-			'rmcr_donation_banner_widget', // base ID
-			__( 'Donation Banner Widget', 'rmcr_donation_banner_widget_domain' ), // widget name
+			'rmcr_adoption_banner_widget', // base ID
+			__( 'Adoption Banner Widget', 'rmcr_adoption_banner_widget_domain' ), // widget name
 			array(
-				'description' => __( 'Donation banner widget', 'rmcr_donation_banner_widget_domain' ),
+				'description' => __( 'Adoption banner widget', 'rmcr_adoption_banner_widget_domain' ),
 			)
 		);
 	}
@@ -22,7 +22,7 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 			echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 		}
 
-		$html = '<div style="min-height:100px;min-width:100%;background-color:tomato;">Donation Banner</div>';
+		$html = '<div style="min-height:100px;min-width:100%;background-color:tomato;">Adoption Banner</div>';
 		echo $html;
 
 		echo $args[ 'after_widget' ];
@@ -32,7 +32,7 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 		if ( isset( $instance[ 'title' ] ) ) {
 			$title = $instance[ 'title' ];
 		} else {
-			$title = __( 'New title', 'rmcr_donation_banner_widget_domain' );
+			$title = __( 'New title', 'rmcr_adoption_banner_widget_domain' );
 		}
 		?>
 		<p>
@@ -52,5 +52,5 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 }
 
 add_action( 'widgets_init', function() {
-	register_widget( 'rmcr_donation_banner_widget' );
+	register_widget( 'rmcr_adoption_banner_widget' );
 } );

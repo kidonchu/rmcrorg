@@ -56,3 +56,8 @@ require get_template_directory() . '/inc/classes/rmcr-dog.php';
  * Load Donation Banner Widget
  */
 require dirname(__FILE__) . '/rmcr-donation-banner-widget.php';
+
+/**
+ * Load Adoption Banner Widget
+ */
+require dirname(__FILE__) . '/rmcr-adoption-banner-widget.php';
