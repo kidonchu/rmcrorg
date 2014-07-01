@@ -48,6 +48,41 @@ function my_cpt_post_types( $post_types ) {
 add_filter( 'cpt_post_types', 'my_cpt_post_types' );
 
 /**
+ * Register widget area.
+ */
+function rmcr_register_widget_areas() {
+	register_sidebar( array(
+		'name'          => __( 'Footer 1', 'rmcr' ),
+		'id'            => 'footer-1',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3>',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer 2', 'rmcr' ),
+		'id'            => 'footer-2',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3>',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer 3', 'rmcr' ),
+		'id'            => 'footer-3',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3>',
+		'after_title'   => '</h3>',
+	) );
+}
+
+add_action( 'widgets_init', 'rmcr_register_widget_areas' );
+
+/**
  * Load Dog class
  */
 require get_template_directory() . '/inc/classes/rmcr-dog.php';
