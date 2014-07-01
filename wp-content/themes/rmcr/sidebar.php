@@ -6,9 +6,9 @@
  */
 ?>
 
-<div class="col-md-3" style="background-color: green">
+<div class="col-md-3">
 
-	<div id="secondary" class="widget-area" role="complementary">
+	<div id="secondary" class="widget-area sidebar" role="complementary">
 		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
 			<aside id="search" class="widget widget_search">
