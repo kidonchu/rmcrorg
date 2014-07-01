@@ -51,3 +51,13 @@ add_filter( 'cpt_post_types', 'my_cpt_post_types' );
  * Load Dog class
  */
 require get_template_directory() . '/inc/classes/rmcr-dog.php';
+
+/**
+ * Load Donation Banner Widget
+ */
+require dirname(__FILE__) . '/rmcr-donation-banner-widget.php';
+
+/**
+ * Load Adoption Banner Widget
+ */
+require dirname(__FILE__) . '/rmcr-adoption-banner-widget.php';
