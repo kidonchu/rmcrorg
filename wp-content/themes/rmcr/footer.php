@@ -8,60 +8,68 @@
  */
 ?>
 
-	</div><!-- #content -->
+</div><!-- #content -->
 
-	<footer id="mastfooter" class="site-footer container" role="contentinfo">
+<footer id="mastfooter" class="site-footer container" role="contentinfo">
 
-		<div class="row">
-			<div class="col-md-4">
-				<?php if ( ! dynamic_sidebar( 'footer-1' ) ) : ?>
+	<div class="row main-footer">
 
-					<aside id="meta" class="widget">
-						<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
-						<ul>
-							<?php wp_register(); ?>
-							<li><?php wp_loginout(); ?></li>
-							<?php wp_meta(); ?>
-						</ul>
-					</aside>
-
-				<?php endif; // end sidebar widget area ?>
-			</div>
-			<div class="col-md-4">
-				<?php if ( ! dynamic_sidebar( 'footer-2' ) ) : ?>
-
-					<aside id="meta" class="widget">
-						<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
-						<ul>
-							<?php wp_register(); ?>
-							<li><?php wp_loginout(); ?></li>
-							<?php wp_meta(); ?>
-						</ul>
-					</aside>
-
-				<?php endif; // end sidebar widget area ?>
-			</div>
-			<div class="col-md-4">
-				<?php if ( ! dynamic_sidebar( 'footer-3' ) ) : ?>
-
-					<aside id="meta" class="widget">
-						<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
-						<ul>
-							<?php wp_register(); ?>
-							<li><?php wp_loginout(); ?></li>
-							<?php wp_meta(); ?>
-						</ul>
-					</aside>
-
-				<?php endif; // end sidebar widget area ?>
-			</div>
+		<div class="col-md-3">
+			<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
+			     alt="<?php bloginfo( 'name' ); ?>">
 		</div>
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'rmcr' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'rmcr' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'rmcr' ), 'rmcr', '<a href="http://kidonchu.com" rel="designer">Kidon Chu</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+
+		<div class="col-md-3">
+			<?php if ( ! dynamic_sidebar( 'footer-1' ) ) : ?>
+
+				<aside id="meta" class="widget">
+					<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
+					<ul>
+						<?php wp_register(); ?>
+						<li><?php wp_loginout(); ?></li>
+						<?php wp_meta(); ?>
+					</ul>
+				</aside>
+
+			<?php endif; // end sidebar widget area ?>
+		</div>
+		<div class="col-md-3">
+			<?php if ( ! dynamic_sidebar( 'footer-2' ) ) : ?>
+
+				<aside id="meta" class="widget">
+					<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
+					<ul>
+						<?php wp_register(); ?>
+						<li><?php wp_loginout(); ?></li>
+						<?php wp_meta(); ?>
+					</ul>
+				</aside>
+
+			<?php endif; // end sidebar widget area ?>
+		</div>
+		<div class="col-md-3">
+			<?php if ( ! dynamic_sidebar( 'footer-3' ) ) : ?>
+
+				<aside id="meta" class="widget">
+					<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
+					<ul>
+						<?php wp_register(); ?>
+						<li><?php wp_loginout(); ?></li>
+						<?php wp_meta(); ?>
+					</ul>
+				</aside>
+
+			<?php endif; // end sidebar widget area ?>
+		</div>
+	</div>
+
+	<p>
+		Rocky Mountain Cocker Rescue in Colorado is a nonprofit, tax-exempt organization under Section 501(c)(3) of
+		the Internal Revenue Code. All donations are tax deductible as allowed by law.
+	</p>
+
+</footer>
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
