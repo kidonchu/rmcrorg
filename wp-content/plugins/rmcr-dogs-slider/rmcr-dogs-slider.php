@@ -24,9 +24,6 @@ add_action( 'wp_print_styles', 'rds_add_style' );
 add_action( 'wp_head', 'rds_add_custom_style' );
 add_action( 'init', 'rds_add_script' );
 
-// register Rps widget
-add_action( 'widgets_init', create_function( '', 'return register_widget("RpsWidget");' ) );
-
 // add color picker
 add_action( 'admin_enqueue_scripts', 'rds_enqueue_color_picker' );
 function rds_enqueue_color_picker() {
@@ -241,14 +238,9 @@ function rds_add_script() {
 	}
 }
 
-function rds_show( $category_ids = null, $total_posts = null, $post_include_ids = null, $post_exclude_ids = null ) {
+function rds_show( $category_ids = null, $status_to_show = 'adoptable') {
 
-	$post_per_slide = get_option( 'rds_post_per_slide' );
-	if ( empty( $total_posts ) ) $total_posts = get_option( 'rds_total_posts' );
-	$slider_content = get_option( 'rds_slider_content' );
-	if ( empty( $category_ids ) ) $category_ids = get_option( 'rds_category_ids' );
-	if ( empty( $post_include_ids ) ) $post_include_ids = get_option( 'rds_post_include_ids' );
-	if ( empty( $post_exclude_ids ) ) $post_exclude_ids = get_option( 'rds_post_exclude_ids' );
+	$posts_per_slide = get_option( 'rds_posts_per_slide' );
 	$post_title_color = get_option( 'rds_post_title_color' );
 	$post_title_bg_color = get_option( 'rds_post_title_bg_color' );
 	$slider_speed = get_option( 'rds_slider_speed' );
@@ -285,54 +277,31 @@ function rds_show( $category_ids = null, $total_posts = null, $post_include_ids 
 	else
 	$excerpt_length = $excerpt_length - (($excerpt_length * 30) /100);*/
 
+	$posts_per_slide = 4;
+
 	$post_details = null;
-	$args = array(
-		'numberposts' => $total_posts,
-		'offset'      => 0,
-		'category'    => $category_ids,
-		'orderby'     => 'post_date',
-		'order'       => 'DESC',
-		'include'     => $post_include_ids,
-		'exclude'     => $post_exclude_ids,
-		'post_type'   => 'post',
-		'post_status' => 'publish' );
-	$recent_posts = get_posts( $args );
+	$recent_posts = get_posts( array(
+		'numberposts' => -1,
+//		'offset'      => 0,
+//		'category'    => '',
+//		'orderby'     => 'post_date',
+//		'order'       => 'DESC',
+//		'include'     => '',
+//		'exclude'     => '',
+		'post_type'   => 'dog',
+		'post_status' => 'publish'
+	));
 
-	if ( count( $recent_posts ) < $total_posts ) {
-		$total_posts = count( $recent_posts );
-	}
-
-	if ( ( $total_posts % $post_per_slide ) == 0 )
-		$paging = $total_posts / $post_per_slide;
-	else
-		$paging = ( $total_posts / $post_per_slide ) + 1;
+	$num_pages = ceil(count($recent_posts) / $posts_per_slide);
 
 	foreach ( $recent_posts as $key => $val ) {
 		$post_details[ $key ][ 'post_title' ] = $val->post_title;
 		$post_details[ $key ][ 'post_permalink' ] = get_permalink( $val->ID );
-
-		if ( $slider_content == 2 ) {
-			if ( ! empty( $val->post_excerpt ) )
-				$post_details[ $key ][ 'post_excerpt' ] = create_excerpt( $val->post_excerpt, $excerpt_length, $post_details[ $key ][ 'post_permalink' ], $excerpt_words );
-			else
-				$post_details[ $key ][ 'post_excerpt' ] = create_excerpt( $val->post_content, $excerpt_length, $post_details[ $key ][ 'post_permalink' ], $excerpt_words );
-		} elseif ( $slider_content == 1 ) {
-			$post_details[ $key ][ 'post_first_img' ] = get_post_meta( $val->ID, '_rds_img_src' );
-		} elseif ( $slider_content == 3 ) {
-			$post_details[ $key ][ 'post_first_img' ] = get_post_meta( $val->ID, '_rds_img_src' );
-			if ( ! empty( $val->post_excerpt ) )
-				$post_details[ $key ][ 'post_excerpt' ] = create_excerpt( $val->post_excerpt, ( $excerpt_length / 2 ) - 10, $post_details[ $key ][ 'post_permalink' ], $excerpt_words );
-			else
-				$post_details[ $key ][ 'post_excerpt' ] = create_excerpt( $val->post_content, ( $excerpt_length / 2 ) - 10, $post_details[ $key ][ 'post_permalink' ], $excerpt_words );
-		}
-		if ( $show_post_date ) {
-			$post_details[ $key ][ 'post_date' ] = date_i18n( $post_date_format, strtotime( $val->post_date ) );
-		}
 	}
+	?>
 
-	//$upload_dir = wp_upload_dir();
-	$output = '<!--Automatic Image Slider w/ CSS & jQuery with some customization-->';
-	$output .= '<script type="text/javascript">
+	<!-- RMCR Dogs Slider js script -->
+	<script>
 	$j = jQuery.noConflict();
 	$j(document).ready(function() {';
 
@@ -341,16 +310,16 @@ function rds_show( $category_ids = null, $total_posts = null, $post_include_ids 
 		$output .= '$j("#rds .paging").show();';
 	}
 	$output .= '$j("#rds .paging a:first").addClass("active");
-	
+
 	$j(".slide").css({"width" : ' . $width . '});
 	$j("#rds .window").css({"width" : ' . ( $width ) . '});
 	$j("#rds .window").css({"height" : ' . $height . '});
 
-	$j("#rds .col").css({"width" : ' . ( ( $width / $post_per_slide ) - 2 ) . '});
+	$j("#rds .col").css({"width" : ' . ( ( $width / $posts_per_slide ) - 2 ) . '});
 	$j("#rds .col").css({"height" : ' . ( $height - 4 ) . '});
 	$j("#rds .col p.post-title span").css({"color" : "' . ( $post_title_color ) . '"});
 	$j("#rds .post-date").css({"top" : ' . ( $height - 20 ) . '});
-	$j("#rds .post-date").css({"width" : ' . ( ( $width / $post_per_slide ) - 12 ) . '});';
+	$j("#rds .post-date").css({"width" : ' . ( ( $width / $posts_per_slide ) - 12 ) . '});';
 
 	if ( ! empty( $post_title_bg_color_js ) ) {
 		$output .= '$j("#rds .col p.post-title").css({"background-color" : "' . ( $post_title_bg_color_js ) . '"});';
@@ -359,27 +328,27 @@ function rds_show( $category_ids = null, $total_posts = null, $post_include_ids 
 	$output .= 'var imageWidth = $j("#rds .window").width();
 	//var imageSum = $j("#rds .slider div").size();
 	var imageReelWidth = imageWidth * ' . $paging . ';
-	
+
 	//Adjust the image reel to its new size
 	$j("#rds .slider").css({"width" : imageReelWidth});
 
 	//Paging + Slider Function
-	rotate = function(){	
+	rotate = function(){
 		var triggerID = $active.attr("rel") - 1; //Get number of times to slide
 		//alert(triggerID);
 		var sliderPosition = triggerID * imageWidth; //Determines the distance the image reel needs to slide
 
-		$j("#rds .paging a").removeClass("active"); 
+		$j("#rds .paging a").removeClass("active");
 		$active.addClass("active");
-		
+
 		//Slider Animation
-		$j("#rds .slider").stop(true,false).animate({ 
+		$j("#rds .slider").stop(true,false).animate({
 			left: -sliderPosition
 		}, 500 );
-	}; 
+	};
 	var play;
 	//Rotation + Timing Event
-	rotateSwitch = function(){		
+	rotateSwitch = function(){
 		play = setInterval(function(){ //Set timer - this will repeat itself every 3 seconds
 			$active = $j("#rds .paging a.active").next();
 			if ( $active.length === 0) { //If paging reaches the end...
@@ -388,36 +357,36 @@ function rds_show( $category_ids = null, $total_posts = null, $post_include_ids 
 			rotate(); //Trigger the paging and slider function
 		}, ' . $slider_speed . ');
 	};
-	
+
 	rotateSwitch(); //Run function on launch
-	
+
 	//On Hover
 	$j("#rds .slider a").hover(function() {
 		clearInterval(play); //Stop the rotation
 	}, function() {
 		rotateSwitch(); //Resume rotation
-	});	
-	
+	});
+
 	//On Click
-	$j("#rds .paging a").click(function() {	
+	$j("#rds .paging a").click(function() {
 		$active = $j(this); //Activate the clicked paging
 		//Reset Timer
 		clearInterval(play); //Stop the rotation
 		rotate(); //Trigger rotation immediately
 		rotateSwitch(); // Resume rotation
 		return false; //Prevent browser jump to link anchor
-	});	
+	});
 });
 
 </script>';
 
 	$output .= '<div id="rds">
-            <div class="window">	
+            <div class="window">
                 <div class="slider">';
 	$p = 0;
-	for ( $i = 1; $i <= $total_posts; $i += $post_per_slide ) {
+	for ( $i = 1; $i <= $total_posts; $i += $posts_per_slide ) {
 		$output .= '<div class="slide">';
-		for ( $j = 1; $j <= $post_per_slide; $j ++ ) {
+		for ( $j = 1; $j <= $posts_per_slide; $j ++ ) {
 			$output .= '<div class="col"><p class="post-title"><a href="' . $post_details[ $p ][ 'post_permalink' ] . '"><span>' . __( $post_details[ $p ][ 'post_title' ], 'rds' ) . '</span></a></p>';
 			if ( $slider_content == 2 ) {
 				$output .= '<p class="slider-content">' . __( $post_details[ $p ][ 'post_excerpt' ], 'rds' );
