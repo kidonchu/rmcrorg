@@ -8,17 +8,30 @@ class RMCR_Dog {
 		'short_description', 'description', 'not_good_with',
 		'photo1', 'photo2', 'photo3', 'photo4',
 	);
+	private $_required_fields = array(
+		'name', 'status', 'rmcr_id', 'gender', 'age', 'short_description', 'description',
+	);
 
-	public function __construct() {
+	public function __construct($id = false) {
 		foreach ( $this->_fields as $field ) {
-			$this->setData( $field, get_field( $field ) );
+			$this->set_data( $field, get_field( $field, $id ) );
 		}
 	}
 
-	public function getStatusLabel() {
+	public function has_required_fields()
+	{
+		foreach ($this->_required_fields as $key) {
+			if (null === $this->get_data($key)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public function get_status_label() {
 		$html = '';
 
-		$status = $this->getData( 'status' );
+		$status = $this->get_data( 'status' );
 		if ( $status ) {
 			switch ( $status ) {
 				case 'Pending':
@@ -30,16 +43,18 @@ class RMCR_Dog {
 				case 'Adopted':
 					$html = '<span class="label label-info">ADOPTED</span>';
 					break;
+				default:
+					$html = '<span class="label label-default">UNKNOWN</span>';
 			}
 		}
 
 		return $html;
 	}
 
-	public function getAgeTranslated() {
+	public function get_age_translated() {
 		$ret = false;
 
-		$age = $this->getData( 'age' );
+		$age = $this->get_data( 'age' );
 		if ( $age ) {
 			switch ( $age ) {
 				case 1:
@@ -65,31 +80,38 @@ class RMCR_Dog {
 		return $ret;
 	}
 
-	public function getAdoptLink()
+	public function get_adopt_link()
 	{
-		if ($this->getData('name')) {
-			return '<a href="#" class="btn btn-warning pull-right">Adopt ' . $this->getData('name') . ' Now</a>';
+		if ($this->get_data('name')) {
+			return '<a href="#" class="btn btn-warning pull-right">Adopt ' . $this->get_data('name') . ' Now</a>';
 		}
 		return '';
 	}
 	
-	public function getNotGoodWithTranslated()
+	public function get_not_good_with_translated()
 	{
-		if ($this->getData('not_good_with')) {
-			return implode(', ', $this->getData('not_good_with'));
+		if ($this->get_data('not_good_with')) {
+			return implode(', ', $this->get_data('not_good_with'));
 		}
 		return '';
 	}
 
-	public function setData( $key, $value ) {
+	public function set_data( $key, $value ) {
 		$this->_data[ $key ] = $value;
 		return $this;
 	}
 
-	public function getData( $key ) {
+	public function get_data( $key = null ) {
+
+		// fetch all data if key is not provided
+		if ( ! $key && $this->_data) {
+			return $this->_data;
+		}
+
 		if ( isset( $this->_data[ $key ] ) ) {
 			return $this->_data[ $key ];
 		}
+
 		return null;
 	}
 }
