@@ -1,0 +1,192 @@
+.rds {
+	min-width: 100%;
+	position: relative;
+	border: 1px solid #e8e8e8;
+}
+
+.rds .window {
+	background: #fffefe;
+	height: 220px;
+	padding-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	width: 848px;
+}
+
+.rds .slider {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.rdx .slide {
+	border: 1px solid #aaa;
+	width: 100%;
+}
+
+/*.rds .slider div{*/
+/*float:left;*/
+/*}*/
+
+.rds .slider .col {
+	float: left;
+	/*border-top:0px;*/
+	/*border-left:1px solid #E9E8E8;*/
+	/*border-bottom:0px;*/
+	/*height: 300px;*/
+	padding:5px 12px;
+	width: 170px;
+}
+
+.rds .col .title,
+.rds .col .thumb {
+	margin-bottom: 6px;
+	margin-bottom: .6rem;
+}
+
+.rds .col .thumb {
+	height: 100px;
+	width: 100%;
+}
+
+.rds .col .content {
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 18px;
+	line-height: 1.8rem;
+}
+
+.rds .col img {
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: white;
+	border: 4px solid #ebebeb;
+	padding: 0;
+}
+
+.rds .col p.post-title {
+	position: relative;
+	padding: 0px;
+	margin: 0;
+	height: 40px;
+}
+
+.rds .col p.post-title span {
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px 10px;
+	height: 40px;
+	overflow: hidden;
+	position: absolute;
+	color: #666666;
+	text-decoration: none;
+	line-height: 18px;
+}
+
+.rds .col p.post-title a {
+	text-decoration: none;
+}
+
+.rds .col p.post-title span:hover {
+	height: auto;
+	overflow: auto;
+	/*background:#fffefe;*/
+	z-index: 100;
+	padding-bottom: 3px;
+	color: #000000;
+}
+
+.rds .col p.post-title a:hover {
+	color: #000000;
+}
+
+.rds .col p.slider-content {
+	position: relative;
+}
+
+.rds .col p.slider-content-img {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	text-align: center;
+}
+
+.rds .col p.slider-content-both {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	text-align: left;
+	line-height: 17px;
+	margin-right: 5px;
+	margin-left: 10px;
+}
+
+.rds .col p.slider-content-both img {
+	margin-right: 10px;
+	-moz-border-radius: 1px;
+	-khtml-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	background-color: white;
+	border: 2px solid #ebebeb;
+	padding: 1px;
+}
+
+.rds .paging {
+	font-size: 11px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	z-index: 100;
+	text-align: center;
+	padding: 3px 10px;
+	background: #bcbcbc;
+	/* for IE */
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.rds .paging a {
+	padding: 0px 5px;
+	text-decoration: none;
+	color: #2a2a2a;
+	font-weight: bold;
+}
+
+.rds .paging a.active {
+	background: #4b4646;
+	border: 1px solid #272222;
+	-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	color: #ffffff;
+}
+
+.rds .paging a:hover {
+	color: #000000;
+}
+
+.rds .post-date {
+	position: absolute;
+	margin-left: 5px;
+	margin-right: 5px;
+	z-index: 1000px;
+	background: #f7f5f5;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+	color: #000000;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.rds img {
+	max-width: 100%;
+	height: auto;
+	width: auto9; /* ie8 */
+}
