@@ -1,12 +1,16 @@
 <?php get_header(); ?>
 
-<div id="primary" class="content-area">
+<div class="row">
 
-	<main id="main" class="site-main" role="main">
+	<div class="col-md-9">
 
-		<div class="row">
+		<div id="primary" class="content-area">
 
-			<div class="col-md-9">
+			<main id="main" class="site-main" role="main">
+
+				<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
+					yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+				} ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -59,14 +63,14 @@
 
 				<?php endwhile; ?>
 
-			</div>
-
-			<?php get_sidebar(); ?>
+			</main>
 
 		</div>
 
-	</main>
+	</div>
 
-</div><!-- #primary -->
+	<?php get_sidebar(); ?>
+
+</div>
 
 <?php get_footer(); ?>

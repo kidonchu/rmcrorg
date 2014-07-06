@@ -6,29 +6,24 @@
  * @package rmcr
  */
 ?>
-
 <?php get_header(); ?>
+	<div class="row">
+		<div class="col-md-9">
+			<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
+				yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+			} ?>
+			<main id="content" class="content" role="main">
 
-<div class="row">
+				<?php while ( have_posts() ) : the_post(); ?>
 
-	<div id="primary" class="col-md-9">
+					<?php get_template_part( 'partials/content', 'single-dog' ); ?>
 
-		<main id="content" class="content" role="main">
+					<?php rmcr_post_nav(); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+				<?php endwhile; // end of the loop ?>
 
-				<?php get_template_part( 'partials/content', 'single-dog' ); ?>
-
-				<?php rmcr_post_nav(); ?>
-
-			<?php endwhile; // end of the loop ?>
-
-		</main><!-- #main -->
-
-	</div><!-- #primary -->
-
-	<?php get_sidebar(); ?>
-
-</div>
-
+			</main>
+		</div>
+		<?php get_sidebar(); ?>
+	</div>
 <?php get_footer(); ?>

@@ -4,6 +4,10 @@
 
 	<div class="col-md-9">
 
+		<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
+			yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+		} ?>
+
 		<div id="primary" class="content-area">
 
 			<main id="main" class="site-main" role="main">
@@ -92,9 +96,9 @@
 
 			</main>
 
-		</div>
+		</div><!-- #primary -->
 
-	</div><!-- #primary -->
+	</div>
 
 	<?php get_sidebar(); ?>
 

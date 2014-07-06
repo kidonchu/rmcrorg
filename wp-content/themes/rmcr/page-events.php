@@ -1,76 +1,56 @@
-<?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package rmcr
- */
+<?php get_header(); ?>
+<div class="row">
+	<div class="col-md-9">
+		<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
+			yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+		} ?>
+		<main id="content" class="content" role="main">
 
-get_header(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-<div id="primary" class="content-area">
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<main id="main" class="site-main" role="main">
+					<!-- entry-header -->
+					<header class="entry-header">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					</header>
 
-		<div class="row">
+					<!-- promotional banners -->
+					<div class="row">
+						<div class="col-md-4">
+							<?php dynamic_sidebar( 'event-promotion-1' ); ?>
+						</div>
+						<div class="col-md-4">
+							<?php dynamic_sidebar( 'event-promotion-2' ); ?>
+						</div>
+						<div class="col-md-4">
+							<?php dynamic_sidebar( 'event-promotion-3' ); ?>
+						</div>
+					</div>
 
-			<div class="col-md-9">
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-						<!-- entry-header -->
-						<header class="entry-header">
-							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-						</header>
-
-						<!-- promotional banners -->
+					<!-- events -->
+					<div class="entry-content">
 						<div class="row">
 							<div class="col-md-4">
-								<?php dynamic_sidebar( 'event-promotion-1' ); ?>
+								<?php echo do_shortcode( '[google-calendar-events type="list-grouped" title="Events on" max="5"]' ); ?>
 							</div>
-							<div class="col-md-4">
-								<?php dynamic_sidebar( 'event-promotion-2' ); ?>
-							</div>
-							<div class="col-md-4">
-								<?php dynamic_sidebar( 'event-promotion-3' ); ?>
+							<div class="col-md-8">
+								<?php echo do_shortcode( '[google-calendar-events type="ajax" title="Events on" max="0"]' ); ?>
 							</div>
 						</div>
+					</div>
 
-						<!-- events -->
-						<div class="entry-content">
-							<div class="row">
-								<div class="col-md-4">
-									<?php echo do_shortcode( '[google-calendar-events type="list-grouped" title="Events on" max="5"]' ); ?>
-								</div>
-								<div class="col-md-8">
-									<?php echo do_shortcode( '[google-calendar-events type="ajax" title="Events on" max="0"]' ); ?>
-								</div>
-							</div>
-						</div>
+					<!-- entry footer -->
+					<footer class="entry-footer">
+						<?php edit_post_link( __( 'Edit', 'rmcr' ), '<span class="edit-link">', '</span>' ); ?>
+					</footer>
 
-						<!-- entry footer -->
-						<footer class="entry-footer">
-							<?php edit_post_link( __( 'Edit', 'rmcr' ), '<span class="edit-link">', '</span>' ); ?>
-						</footer>
+				</article><!-- #post-## -->
 
-					</article><!-- #post-## -->
+			<?php endwhile; ?>
 
-				<?php endwhile; ?>
-
-			</div>
-
-			<?php get_sidebar(); ?>
-
-		</div>
-
-	</main>
-
-</div><!-- #primary -->
-
+		</main>
+	</div>
+	<?php get_sidebar(); ?>
+</div>
 <?php get_footer(); ?>
