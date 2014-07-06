@@ -52,6 +52,33 @@ add_filter( 'cpt_post_types', 'my_cpt_post_types' );
  */
 function rmcr_register_widget_areas() {
 	register_sidebar( array(
+		'name'          => __( 'Event Promotion 1', 'rmcr' ),
+		'id'            => 'event-promotion-1',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget event-promotion-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Event Promotion 2', 'rmcr' ),
+		'id'            => 'event-promotion-2',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget event-promotion-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Event Promotion 3', 'rmcr' ),
+		'id'            => 'event-promotion-3',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget event-promotion-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
 		'name'          => __( 'Footer 1', 'rmcr' ),
 		'id'            => 'footer-1',
 		'description'   => '',

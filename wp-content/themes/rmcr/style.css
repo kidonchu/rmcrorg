@@ -653,6 +653,12 @@ a:active {
 	display: none;
 }
 
+.event-promotion-widget {
+	background-color: gold;
+	min-height: 150px;
+	min-width: 100%;
+}
+
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
@@ -676,15 +682,13 @@ a:active {
 	display: inline;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.entry-content > :last-child {
+	margin-bottom: 0;
 }
 
 .dog-carousel {
