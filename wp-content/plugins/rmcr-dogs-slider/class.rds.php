@@ -66,9 +66,9 @@ class Rds {
 		$dogs = array();
 		foreach ( $recent_posts as $post ) {
 
-			$dog = new RMCR_Dog($post->ID);
-			$dog->set_data('permalink', get_permalink( $post->ID ));
-			$dogs[] = $dog;
+			$dog = new RMCR_Dog( $post->ID );
+			$dog->set_data( 'permalink', get_permalink( $post->ID ) );
+			$dogs[ ] = $dog;
 
 		}
 		?>
@@ -101,7 +101,6 @@ class Rds {
 
 				};
 
-				//Rotation + Timing Event
 				var showNextSlide = function () {
 
 					$play = setInterval(function () {
@@ -113,18 +112,18 @@ class Rds {
 							$active = $j(".rds .paging a:first");
 						}
 
-						slide(); //Trigger the paging and slider function
+						slide();
 
-					}, 500000);
+					}, 5000);
 				};
 
 				showNextSlide();
 
 				// paging hover event
 				$j(".rds .slider a").hover(function () {
-					clearInterval($play); //Stop the rotation
+					clearInterval($play);
 				}, function () {
-					showNextSlide(); //Resume rotation
+					showNextSlide();
 				});
 
 				// paging click event
@@ -149,22 +148,24 @@ class Rds {
 									<?php break; ?>
 								<?php endif; ?>
 								<?php /** @var $dog RMCR_Dog */
-								$dog = $dogs[$p]; ?>
+								$dog = $dogs[ $p ]; ?>
 								<div class="col">
 									<h3 class="title">
-										<a href="<?php echo $dog->get_data('permalink'); ?>">
-											<?php echo $dog->get_data('name'); ?>
+										<a href="<?php echo $dog->get_data( 'permalink' ); ?>">
+											<?php echo $dog->get_data( 'name' ); ?>
 										</a>
 									</h3>
 
-									<img class="thumb" src="<?php echo $dog->get_data('photo1'); ?>"
-									     alt="Photo of <?php echo $dog->get_data('name') ?>">
+									<a href="<?php echo $dog->get_data( 'permalink' ); ?>">
+										<img class="thumb" src="<?php echo $dog->get_data( 'photo1' ); ?>"
+										     alt="Photo of <?php echo $dog->get_data( 'name' ) ?>">
+									</a>
 
 									<div class="content">
 
 										<p>
 											<strong>Gender:</strong>
-											<?php echo $dog->get_data('gender'); ?><br>
+											<?php echo $dog->get_data( 'gender' ); ?><br>
 											<strong>Age:</strong>
 											<?php echo $dog->get_age_translated(); ?>
 										</p>

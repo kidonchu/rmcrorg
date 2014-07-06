@@ -6,7 +6,7 @@
 
 .rds .window {
 	background: #fffefe;
-	height: 250px;
+	height: 220px;
 	padding-bottom: 20px;
 	position: relative;
 	overflow: hidden;
@@ -17,8 +17,6 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	font-size: 12px;
-	font-family: Arial, Verdana;
 }
 
 .rdx .slide {
@@ -51,10 +49,11 @@
 	width: 100%;
 }
 
-.rds .col p {
+.rds .col .content {
 	font-size: 12px;
-	padding: 0 10px;
-	margin: 0;
+	font-size: 1.2rem;
+	line-height: 18px;
+	line-height: 1.8rem;
 }
 
 .rds .col img {

@@ -12,9 +12,9 @@ class RMCR_Dog {
 		'name', 'status', 'rmcr_id', 'gender', 'age', 'short_description', 'description',
 	);
 
-	public function __construct() {
+	public function __construct($id = false) {
 		foreach ( $this->_fields as $field ) {
-			$this->set_data( $field, get_field( $field ) );
+			$this->set_data( $field, get_field( $field, $id ) );
 		}
 	}
 
