@@ -143,7 +143,7 @@ a img {
 
 h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, blockquote,
 p, address, table, fieldset, figure, pre, .post, .site-header,
-.entry-meta, .entry-head, .entry-title, .entry-content,
+.entry-meta, .entry-head, .entry-title, .entry-content, .hero,
 .comment, .comment-navigation, iframe {
 	margin-top: 0;
 	margin-bottom: 24px;
@@ -267,6 +267,11 @@ small {
 
 big {
 	font-size: 125%;
+}
+
+.home-title {
+	font-size: 24px;
+	font-size: 2.4rem;
 }
 
 .entry-title {
@@ -726,7 +731,6 @@ a:active {
 10.5 Header
 --------------------------------------------------------------*/
 #masthead {
-	background-image: linear-gradient(#ffe145, #fff3b3);
 }
 
 /*--------------------------------------------------------------
