@@ -105,6 +105,15 @@ function rmcr_register_widget_areas() {
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Featured Dog', 'rmcr' ),
+		'id'            => 'featured-dog',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget featured-dog-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
 }
 
 add_action( 'widgets_init', 'rmcr_register_widget_areas' );
