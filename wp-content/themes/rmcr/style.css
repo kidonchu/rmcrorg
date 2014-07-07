@@ -143,7 +143,7 @@ a img {
 
 h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, blockquote,
 p, address, table, fieldset, figure, pre, .post, .site-header,
-.entry-meta, .entry-head, .entry-title, .entry-content,
+.entry-meta, .entry-head, .entry-title, .entry-content, .hero,
 .comment, .comment-navigation, iframe {
 	margin-top: 0;
 	margin-bottom: 24px;
@@ -267,6 +267,11 @@ small {
 
 big {
 	font-size: 125%;
+}
+
+.home-title {
+	font-size: 24px;
+	font-size: 2.4rem;
 }
 
 .entry-title {
@@ -648,6 +653,12 @@ a:active {
 	display: none;
 }
 
+.event-promotion-widget {
+	background-color: gold;
+	min-height: 150px;
+	min-width: 100%;
+}
+
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
@@ -671,15 +682,13 @@ a:active {
 	display: inline;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.entry-content > :last-child {
+	margin-bottom: 0;
 }
 
 .dog-carousel {
@@ -726,7 +735,6 @@ a:active {
 10.5 Header
 --------------------------------------------------------------*/
 #masthead {
-	background-image: linear-gradient(#ffe145, #fff3b3);
 }
 
 /*--------------------------------------------------------------

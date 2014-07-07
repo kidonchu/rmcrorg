@@ -37,7 +37,7 @@
 					'menu_class'      => 'nav nav-pills pull-right',
 					'depth'           => 3,
 					'fallback_cb'     => false,
-					'walker'          => new The_Bootstrap_Nav_Walker,
+//					'walker'          => new The_Bootstrap_Nav_Walker,
 				) ); ?>
 
 				<!--				<h1 class="site-title"><a href="-->
