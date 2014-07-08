@@ -8,6 +8,9 @@
 ?>
 
 <?php get_header(); ?>
+<?php
+$status = false;
+?>
 
 <div class="row">
 
@@ -35,41 +38,16 @@
 
 				<div class="row dog-grid">
 
-
 					<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
 						<?php $dog = new RMCR_Dog( get_the_ID() ); ?>
 
 						<?php // if status of the dog is specified, filter by status ?>
-						<?php if ( $status ) : ?>
-							<?php if ( $status != $dog->get_data( 'status' ) ) : ?>
-								<?php continue; ?>
-							<?php endif; ?>
+						<?php if ( $status != $dog->get_data( 'status' ) ) : ?>
+							<?php continue; ?>
 						<?php endif; ?>
 
-						<div class="col-xs-2 dog-block">
-
-							<a href="<?php the_permalink(); ?>">
-								<img class="dog-thumb"
-								     src="<?php echo $dog->get_data( 'photo1' ) ?>"
-								     alt="<?php echo $dog->get_data( 'name' ) ?>"/>
-							</a>
-
-							<a href="<?php the_permalink(); ?>">
-								<h3 class="dog-title">
-									<?php echo $dog->get_data( 'name' ) ?>
-								</h3>
-							</a>
-
-							<p class="dog-description">
-								<?php echo $dog->get_status_label(); ?><br/>
-								<strong>Gender:</strong>
-								<?php echo $dog->get_data( 'gender' ); ?><br/>
-								<strong>Age:</strong>
-								<?php echo $dog->get_age_translated(); ?>
-							</p>
-
-						</div>
+						<?php $dog->the_dog_block(); ?>
 
 					<?php endwhile; ?>
 

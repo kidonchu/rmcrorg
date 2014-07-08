@@ -12,16 +12,15 @@ class RMCR_Dog {
 		'name', 'status', 'rmcr_id', 'gender', 'age', 'short_description', 'description',
 	);
 
-	public function __construct($id = false) {
+	public function __construct( $id = false ) {
 		foreach ( $this->_fields as $field ) {
 			$this->set_data( $field, get_field( $field, $id ) );
 		}
 	}
 
-	public function has_required_fields()
-	{
-		foreach ($this->_required_fields as $key) {
-			if (null === $this->get_data($key)) {
+	public function has_required_fields() {
+		foreach ( $this->_required_fields as $key ) {
+			if ( null === $this->get_data( $key ) ) {
 				return false;
 			}
 		}
@@ -80,18 +79,16 @@ class RMCR_Dog {
 		return $ret;
 	}
 
-	public function get_adopt_link()
-	{
-		if ($this->get_data('name')) {
-			return '<a href="#" class="btn btn-warning pull-right">Adopt ' . $this->get_data('name') . ' Now</a>';
+	public function get_adopt_link() {
+		if ( $this->get_data( 'name' ) ) {
+			return '<a href="#" class="btn btn-warning pull-right">Adopt ' . $this->get_data( 'name' ) . ' Now</a>';
 		}
 		return '';
 	}
-	
-	public function get_not_good_with_translated()
-	{
-		if ($this->get_data('not_good_with')) {
-			return implode(', ', $this->get_data('not_good_with'));
+
+	public function get_not_good_with_translated() {
+		if ( $this->get_data( 'not_good_with' ) ) {
+			return implode( ', ', $this->get_data( 'not_good_with' ) );
 		}
 		return '';
 	}
@@ -104,7 +101,7 @@ class RMCR_Dog {
 	public function get_data( $key = null ) {
 
 		// fetch all data if key is not provided
-		if ( ! $key && $this->_data) {
+		if ( ! $key && $this->_data ) {
 			return $this->_data;
 		}
 
@@ -113,5 +110,34 @@ class RMCR_Dog {
 		}
 
 		return null;
+	}
+
+	public function the_dog_block() {
+		?>
+
+		<div class="col-xs-2 dog-block">
+
+			<a href="<?php the_permalink(); ?>">
+				<img class="dog-thumb"
+				     src="<?php echo $this->get_data( 'photo1' ) ?>"
+				     alt="<?php echo $this->get_data( 'name' ) ?>"/>
+			</a>
+
+			<a href="<?php the_permalink(); ?>">
+				<h3 class="dog-title">
+					<?php echo $this->get_data( 'name' ) ?>
+				</h3>
+			</a>
+
+			<p class="dog-description">
+				<?php echo $this->get_status_label(); ?><br/>
+				<strong>Gender:</strong>
+				<?php echo $this->get_data( 'gender' ); ?><br/>
+				<strong>Age:</strong>
+				<?php echo $this->get_age_translated(); ?>
+			</p>
+
+		</div>
+	<?php
 	}
 }
