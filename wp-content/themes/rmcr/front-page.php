@@ -27,6 +27,15 @@
 				<?php Rds::show_slider() ?>
 			<?php endif; ?>
 
+			<div class="row">
+
+				<div class="col-md-4">
+
+					<?php dynamic_sidebar( 'featured-dog' ); ?>
+
+				</div>
+			</div>
+
 		</div>
 
 	</div>

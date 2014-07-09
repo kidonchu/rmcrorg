@@ -2,6 +2,7 @@
 
 class RMCR_Dog {
 
+	private $_id;
 	private $_data = array();
 	private $_fields = array(
 		'name', 'status', 'rmcr_id', 'gender', 'age', 'adoption_fee',
@@ -13,8 +14,12 @@ class RMCR_Dog {
 	);
 
 	public function __construct( $id = false ) {
+		$this->_id = $id;
+		if ( ! $this->_id ) {
+			$this->_id = get_the_ID();
+		}
 		foreach ( $this->_fields as $field ) {
-			$this->set_data( $field, get_field( $field, $id ) );
+			$this->set_data( $field, get_field( $field, $this->_id ) );
 		}
 	}
 
@@ -117,13 +122,13 @@ class RMCR_Dog {
 
 		<div class="dog-block">
 
-			<a href="<?php the_permalink(); ?>">
+			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
 				<img class="dog-thumb"
 				     src="<?php echo $this->get_data( 'photo1' ) ?>"
 				     alt="<?php echo $this->get_data( 'name' ) ?>"/>
 			</a>
 
-			<a href="<?php the_permalink(); ?>">
+			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
 				<h3 class="dog-title">
 					<?php echo $this->get_data( 'name' ) ?>
 				</h3>
@@ -140,5 +145,14 @@ class RMCR_Dog {
 		</div>
 
 	<?php
+	}
+
+	public function get_post() {
+		return WP_Post::get_instance( $this->_id );
+	}
+
+	public function get_permalink()
+	{
+		return get_the_permalink($this->_id);
 	}
 }
