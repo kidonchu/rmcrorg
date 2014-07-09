@@ -26,6 +26,7 @@
 			<?php if ( class_exists( 'Rds' ) ) : ?>
 				<?php Rds::show_slider() ?>
 			<?php endif; ?>
+
 		</div>
 
 	</div>

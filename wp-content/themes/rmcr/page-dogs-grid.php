@@ -47,7 +47,9 @@ $status = false;
 							<?php continue; ?>
 						<?php endif; ?>
 
-						<?php $dog->the_dog_block(); ?>
+						<div class="col-md-2">
+							<?php $dog->the_dog_block(); ?>
+						</div>
 
 					<?php endwhile; ?>
 

@@ -115,7 +115,7 @@ class RMCR_Dog {
 	public function the_dog_block() {
 		?>
 
-		<div class="col-xs-2 dog-block">
+		<div class="dog-block">
 
 			<a href="<?php the_permalink(); ?>">
 				<img class="dog-thumb"
@@ -138,6 +138,7 @@ class RMCR_Dog {
 			</p>
 
 		</div>
+
 	<?php
 	}
 }

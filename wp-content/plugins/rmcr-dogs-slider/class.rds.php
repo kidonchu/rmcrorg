@@ -60,19 +60,18 @@ class Rds {
 			'post_status' => 'publish'
 		) );
 
-		$total_num_posts = count( $recent_posts );
-		$num_pages = ceil( $total_num_posts / self::POSTS_PER_SLIDE );
-
+		// get only adoptable dogs
 		$dogs = array();
 		foreach ( $recent_posts as $post ) {
-
 			$dog = new RMCR_Dog( $post->ID );
-			if ($dog->get_data('status') == 'Adoptable') {
+			if ( $dog->get_data( 'status' ) == 'Adoptable' ) {
 				$dog->set_data( 'permalink', get_permalink( $post->ID ) );
 				$dogs[ ] = $dog;
 			}
-
 		}
+
+		$total_num_posts = count( $dogs );
+		$num_pages = ceil( $total_num_posts / self::POSTS_PER_SLIDE );
 		?>
 
 		<!-- RMCR Dogs Slider js script -->
@@ -141,46 +140,27 @@ class Rds {
 
 		<div class="rds">
 			<div class="window">
-				<div class="slider">
-					<?php $p = 0; ?>
-					<?php for ( $i = 1; $i <= $total_num_posts; $i += self::POSTS_PER_SLIDE ): ?>
-						<div class="slide">
-							<?php for ( $j = 1; $j <= self::POSTS_PER_SLIDE; $j ++ ): ?>
-								<?php if ( $p == $total_num_posts ) : ?>
-									<?php break; ?>
-								<?php endif; ?>
-								<?php /** @var $dog RMCR_Dog */
-								$dog = $dogs[ $p ]; ?>
-								<div class="col">
+				<div class="row">
+					<div class="slider">
+						<?php $p = 0; ?>
+						<?php for ( $i = 1; $i <= $total_num_posts; $i += self::POSTS_PER_SLIDE ): ?>
+							<div class="slide">
+								<?php for ( $j = 1; $j <= self::POSTS_PER_SLIDE; $j ++ ): ?>
+									<?php if ( $p == $total_num_posts ) : ?>
+										<?php break; ?>
+									<?php endif; ?>
+									<?php /** @var $dog RMCR_Dog */
+									$dog = $dogs[ $p ]; ?>
+									<div class="col col-md-2">
 
-									<?php $dog->the_dog_block(); ?>
-									<h3 class="title">
-										<a href="<?php echo $dog->get_data( 'permalink' ); ?>">
-											<?php echo $dog->get_data( 'name' ); ?>
-										</a>
-									</h3>
-
-									<a href="<?php echo $dog->get_data( 'permalink' ); ?>">
-										<img class="thumb" src="<?php echo $dog->get_data( 'photo1' ); ?>"
-										     alt="Photo of <?php echo $dog->get_data( 'name' ) ?>">
-									</a>
-
-									<div class="content">
-
-										<p>
-											<strong>Gender:</strong>
-											<?php echo $dog->get_data( 'gender' ); ?><br>
-											<strong>Age:</strong>
-											<?php echo $dog->get_age_translated(); ?>
-										</p>
+										<?php $dog->the_dog_block(); ?>
 
 									</div>
-
-								</div>
-								<?php $p ++; ?>
-							<?php endfor; ?>
-						</div>
-					<?php endfor; ?>
+									<?php $p ++; ?>
+								<?php endfor; ?>
+							</div>
+						<?php endfor; ?>
+					</div>
 				</div>
 			</div>
 			<div class="paging">
