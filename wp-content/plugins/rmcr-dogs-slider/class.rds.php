@@ -67,8 +67,10 @@ class Rds {
 		foreach ( $recent_posts as $post ) {
 
 			$dog = new RMCR_Dog( $post->ID );
-			$dog->set_data( 'permalink', get_permalink( $post->ID ) );
-			$dogs[ ] = $dog;
+			if ($dog->get_data('status') == 'Adoptable') {
+				$dog->set_data( 'permalink', get_permalink( $post->ID ) );
+				$dogs[ ] = $dog;
+			}
 
 		}
 		?>
@@ -150,6 +152,8 @@ class Rds {
 								<?php /** @var $dog RMCR_Dog */
 								$dog = $dogs[ $p ]; ?>
 								<div class="col">
+
+									<?php $dog->the_dog_block(); ?>
 									<h3 class="title">
 										<a href="<?php echo $dog->get_data( 'permalink' ); ?>">
 											<?php echo $dog->get_data( 'name' ); ?>
