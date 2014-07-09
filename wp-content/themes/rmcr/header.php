@@ -25,20 +25,24 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
-			<div class="site-branding">
-				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
-				     alt="<?php bloginfo( 'name' ); ?>">
+			<div class="site-branding row">
+				<div class="col-md-3">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
+					     alt="<?php bloginfo( 'name' ); ?>">
+				</div>
+				<div class="col-md-9">
+					<?php
+					wp_nav_menu( array(
+						'container'       => 'nav',
+						'container_class' => 'navbar navbar-default',
+						'theme_location'  => 'primary',
+						'menu_class'      => 'nav nav-pills',
+						'depth'           => 3,
+						'fallback_cb'     => false,
+						'walker'          => new RMCR_Nav_Walker(),
+					) ); ?>
+				</div>
 
-				<?php
-				wp_nav_menu( array(
-					'container'       => 'nav',
-					'container_class' => 'main-navigation pull-right',
-					'theme_location'  => 'primary',
-					'menu_class'      => 'nav nav-pills pull-right',
-					'depth'           => 3,
-					'fallback_cb'     => false,
-//					'walker'          => new The_Bootstrap_Nav_Walker,
-				) ); ?>
 
 				<!--				<h1 class="site-title"><a href="-->
 				<?php //echo esc_url( home_url( '/' ) ); ?><!--"-->

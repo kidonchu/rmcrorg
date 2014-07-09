@@ -133,3 +133,8 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+ * Load RMCR Nav Walker
+ */
+require get_template_directory() . '/inc/nav-menu-walker.php';
+
