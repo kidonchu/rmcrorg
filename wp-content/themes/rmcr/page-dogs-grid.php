@@ -1,58 +1,69 @@
 <?php
 /**
+ * Template Name: Dog Grid
+ * The Template for displaying dog grid.
+ *
  * @package rmcr
- * Template name: Dogs Grid
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
+<?php
+$status = false;
+?>
 
 <div class="row">
 
 	<div class="col-xs-9">
 
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main" role="main">
 
-				<?php if(have_posts()) : the_post(); ?>
-					<?php $status = get_option('status') ?>
-					<header class="entry-header">
-						<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-					</header><!-- .entry-header -->
-					<div class="entry-content">
-						<?php the_content() ?>
-					</div><!-- .entry-content -->
-				<?php endif; ?>
+			<?php if ( have_posts() ) : the_post(); ?>
 
-				<?php $wp_query = new WP_Query(array('post_type' => 'dog', 'posts_per_page' => -1)); ?>
-				<?php if ($wp_query->have_posts()) : ?>
+				<?php $status = get_post_meta( get_the_ID(), 'dog_status', true ); // used for dog grid display ?>
 
-					<div class="row">
+				<header class="entry-header">
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				</header>
 
-						<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div>
 
-							<div class="col-xs-3">
-								<?php get_template_part('content', 'page-dog'); ?>
-							</div>
+			<?php endif; ?>
 
-						<?php endwhile; ?>
 
-					</div>
+			<?php $wp_query = new WP_Query( array( 'post_type' => 'dog', 'posts_per_page' => - 1 ) ); ?>
+			<?php if ( $wp_query->have_posts() ) : ?>
 
-				<?php else : ?>
+				<div class="row dog-grid">
 
-					<?php get_template_part('content', 'none'); ?>
+					<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-				<?php endif; ?>
+						<?php $dog = new RMCR_Dog( get_the_ID() ); ?>
 
-			</main>
-			<!-- #main -->
-		</div><!-- #primary -->
+						<?php // if status of the dog is specified, filter by status ?>
+						<?php if ( $status != $dog->get_data( 'status' ) ) : ?>
+							<?php continue; ?>
+						<?php endif; ?>
+
+						<?php $dog->the_dog_block(); ?>
+
+					<?php endwhile; ?>
+
+				</div>
+
+			<?php else : ?>
+
+				<?php get_template_part( 'content', 'none' ); ?>
+
+			<?php endif; ?>
+
+		</main>
 
 	</div>
 
-	<div class="col-xs-3">
-		<?php get_sidebar(); ?>
-	</div>
+	<?php get_sidebar(); ?>
 
 </div>
 

@@ -696,6 +696,27 @@ a:active {
 	max-height: 225px;
 }
 
+.dog-block {
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 18px;
+	line-height: 1.8rem;
+}
+
+.dog-block .dog-thumb {
+	border: 3px solid #ddd;
+	height: 100px;
+	width: 100%;
+}
+
+.dog-block .dog-title {
+	margin-bottom: 0;
+}
+
+.dog-block .dog-description {
+
+}
+
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/
