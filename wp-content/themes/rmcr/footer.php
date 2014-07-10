@@ -10,63 +10,96 @@
 
 </div><!-- #content -->
 
-<footer id="mastfooter" class="site-footer container" role="contentinfo">
+<footer id="mastfooter" class="site-footer" role="contentinfo">
 
-	<div class="row main-footer">
+	<div class="container">
 
-		<div class="col-md-3">
-			<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
-			     alt="<?php bloginfo( 'name' ); ?>">
-		</div>
+		<div class="row">
 
-		<div class="col-md-3">
-			<?php if ( ! dynamic_sidebar( 'footer-1' ) ) : ?>
+			<div class="col-md-3">
+				<?php if ( ! dynamic_sidebar( 'footer-1' ) ) : ?>
 
-				<aside id="meta" class="widget">
-					<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
-					<ul>
-						<?php wp_register(); ?>
-						<li><?php wp_loginout(); ?></li>
-						<?php wp_meta(); ?>
-					</ul>
+					<aside id="meta" class="widget">
+						<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
+						<ul>
+							<?php wp_register(); ?>
+							<li><?php wp_loginout(); ?></li>
+							<?php wp_meta(); ?>
+						</ul>
+					</aside>
+
+				<?php endif; // end sidebar widget area ?>
+			</div>
+			<div class="col-md-3">
+				<?php if ( ! dynamic_sidebar( 'footer-2' ) ) : ?>
+
+					<aside id="meta" class="widget">
+						<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
+						<ul>
+							<?php wp_register(); ?>
+							<li><?php wp_loginout(); ?></li>
+							<?php wp_meta(); ?>
+						</ul>
+					</aside>
+
+				<?php endif; // end sidebar widget area ?>
+			</div>
+			<div class="col-md-3">
+				<?php if ( ! dynamic_sidebar( 'footer-3' ) ) : ?>
+
+					<aside id="meta" class="widget">
+						<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
+						<ul>
+							<?php wp_register(); ?>
+							<li><?php wp_loginout(); ?></li>
+							<?php wp_meta(); ?>
+						</ul>
+					</aside>
+
+				<?php endif; // end sidebar widget area ?>
+			</div>
+			<div class="col-md-3">
+				<aside class="footer-col">
+					<header class="footer-col-header">
+						<h4 class="footer-col-title">Contact Info</h4>
+					</header>
+					<div class="footer-col-content">
+						<p>
+							<strong>Address: </strong>PO Box 482, Parker, CO 80134<br/>
+							<strong>Email: </strong>kathryn@rockymountaincockerrescue.org<br/>
+							<strong>Phone: </strong>303.617.1939<br/>
+							<strong>Fax: </strong>303.680.6692<br/>
+							<strong>Map: </strong>
+							<a href="https://www.google.com/maps/place/Parker,+CO/@39.5080554,-104.765689,12z/data=!3m1!4b1!4m2!3m1!1s0x876c91ce239a3d55:0xd49aeed43d2e2426">
+								View Map
+							</a>
+						</p>
+					</div>
 				</aside>
-
-			<?php endif; // end sidebar widget area ?>
-		</div>
-		<div class="col-md-3">
-			<?php if ( ! dynamic_sidebar( 'footer-2' ) ) : ?>
-
-				<aside id="meta" class="widget">
-					<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
-					<ul>
-						<?php wp_register(); ?>
-						<li><?php wp_loginout(); ?></li>
-						<?php wp_meta(); ?>
-					</ul>
+				<aside class="footer-col">
+					<header class="footer-col-header">
+						<h4 class="footer-col-title">Follow Us</h4>
+					</header>
+					<div class="footer-col-content">
+						<ul>
+							<li>
+								<a href="#">Facebook</a>
+							</li>
+							<li>
+								<a href="#">Twitter</a>
+							</li>
+						</ul>
+					</div>
 				</aside>
-
-			<?php endif; // end sidebar widget area ?>
+			</div>
 		</div>
-		<div class="col-md-3">
-			<?php if ( ! dynamic_sidebar( 'footer-3' ) ) : ?>
 
-				<aside id="meta" class="widget">
-					<h1 class="widget-title"><?php _e( 'Meta', 'rmcr' ); ?></h1>
-					<ul>
-						<?php wp_register(); ?>
-						<li><?php wp_loginout(); ?></li>
-						<?php wp_meta(); ?>
-					</ul>
-				</aside>
+		<p>
+			Rocky Mountain Cocker Rescue in Colorado is a nonprofit, tax-exempt organization under Section 501(c)(3) of
+			the Internal Revenue Code. All donations are tax deductible as allowed by law.
+		</p>
 
-			<?php endif; // end sidebar widget area ?>
-		</div>
 	</div>
-
-	<p>
-		Rocky Mountain Cocker Rescue in Colorado is a nonprofit, tax-exempt organization under Section 501(c)(3) of
-		the Internal Revenue Code. All donations are tax deductible as allowed by law.
-	</p>
 
 </footer>
 

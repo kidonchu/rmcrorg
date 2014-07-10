@@ -82,27 +82,27 @@ function rmcr_register_widget_areas() {
 		'name'          => __( 'Footer 1', 'rmcr' ),
 		'id'            => 'footer-1',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
+		'before_title'  => '<h4 class="footer-col-title">',
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Footer 2', 'rmcr' ),
 		'id'            => 'footer-2',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
+		'before_title'  => '<h4 class="footer-col-title">',
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Footer 3', 'rmcr' ),
 		'id'            => 'footer-3',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
+		'before_title'  => '<h4 class="footer-col-title">',
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
@@ -117,6 +117,12 @@ function rmcr_register_widget_areas() {
 }
 
 add_action( 'widgets_init', 'rmcr_register_widget_areas' );
+
+// custom admin settings
+function setup_admin(){
+	add_options_page( 'Google Calendar Events', 'Google Calendar Events', 'manage_options', basename( __FILE__ ), array( $this, 'admin_page' ) );
+	add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+}
 
 /**
  * Load Dog class

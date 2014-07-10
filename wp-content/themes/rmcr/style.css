@@ -88,7 +88,7 @@ html {
 }
 
 body {
-	background: #f3f3f3; /* Fallback for when there is no custom background color defined. */
+	background: #ffffff; /* Fallback for when there is no custom background color defined. */
 }
 
 article,
@@ -157,8 +157,7 @@ body,
 button,
 input,
 select,
-textarea,
-h1, h2, h3, h4, h5, h6 {
+textarea {
 	color: #212121;
 	font-family: Roboto, sans-serif;
 	font-size: 16px;
@@ -762,14 +761,34 @@ a:active {
 10.6 Footer
 --------------------------------------------------------------*/
 .site-footer {
+	background-color: #212121;
+	border-top: 3px solid #757575;
+	color: #bdbdbd;
 	font-size: 12px;
 	font-size: 1.2rem;
+	padding: 24px 0;
+	padding: 2.4rem 0;
+}
+
+.footer-col {
+	border-top: 1px solid #757575;
+	padding-top: 12px;
+	padding-top: 1.2rem;
+}
+
+.footer-col-header {
+}
+
+.footer-col-title {
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-variant: small-caps;
+	margin-bottom: 12px;
+	margin-bottom: 1.2rem;
 }
 
 .main-footer {
 	background: #b5227f;
-	border-radius: 10px;
-	border-radius: 1.2rem;
 }
 
 .footer-widget {
