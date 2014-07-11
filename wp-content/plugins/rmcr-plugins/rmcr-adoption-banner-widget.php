@@ -18,12 +18,22 @@ class Rmcr_Adoption_Banner_Widget extends WP_Widget {
 
 		echo $args[ 'before_widget' ];
 
-		if ( !empty( $title ) ) {
+		if ( ! empty( $title ) ) {
 			echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 		}
+		?>
 
-		$html = '<div style="min-height:100px;min-width:100%;background-color:tomato;">Adoption Banner</div>';
-		echo $html;
+		<div class="banner-widget">
+			<a href="<?php echo home_url( 'dog-adoption/adopt-rescued-cocker-spaniels' ) ?>"
+			   title="Adopt Rescued Cocker Spaniels">
+				<img class="banner-widget-img"
+				     src="http://local.rmcr.org/wp-content/uploads/2014/07/adoption-banner.jpg"
+				     alt="Adoption Banner"/>
+			</a>
+		</div>
+
+
+		<?php
 
 		echo $args[ 'after_widget' ];
 	}
@@ -46,11 +56,11 @@ class Rmcr_Adoption_Banner_Widget extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance[ 'title' ] = ( !empty( $new_instance[ 'title' ] ) ) ? strip_tags( $new_instance[ 'title' ] ) : '';
+		$instance[ 'title' ] = ( ! empty( $new_instance[ 'title' ] ) ) ? strip_tags( $new_instance[ 'title' ] ) : '';
 		return $instance;
 	}
 }
 
-add_action( 'widgets_init', function() {
+add_action( 'widgets_init', function () {
 	register_widget( 'rmcr_adoption_banner_widget' );
 } );
