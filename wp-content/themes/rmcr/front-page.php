@@ -2,9 +2,9 @@
 
 <div class="row">
 
-	<div class="hero">
-		<img src="http://placehold.it/1170x300" alt="Rocky Mountain Cocker Rescue Org">
-	</div>
+<!--	<div class="hero">-->
+<!--		<img src="http://placehold.it/1170x300" alt="Rocky Mountain Cocker Rescue Org">-->
+<!--	</div>-->
 
 	<div class="col-md-9">
 

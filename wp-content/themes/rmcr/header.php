@@ -24,13 +24,21 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rmcr' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+
+		<img class="header-bg"
+		     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/large2.jpg"
+		     alt=""/>
+
 		<div class="container">
 			<div class="site-branding row">
-				<div class="col-md-3">
-					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
-					     alt="<?php bloginfo( 'name' ); ?>">
+				<div class="col-md-2">
+					<a href="<?php echo home_url(); ?>">
+						<img class="header-logo"
+						     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
+						     alt="<?php bloginfo( 'name' ); ?>">
+					</a>
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-10">
 					<?php
 					wp_nav_menu( array(
 						'container'       => 'nav',
