@@ -1,20 +1,15 @@
-<?php
-/**
- * The template for displaying Archive pages.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package rmcr
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+<div class="row">
 
-	<section id="primary" class="content-area">
+	<div class="col-xs-9">
+
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
+
 				<h1 class="page-title">
 					<?php
 						if ( is_category() ) :
@@ -98,8 +93,12 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+		</main>
 
-<?php get_sidebar(); ?>
+	</div>
+
+	<?php get_sidebar(); ?>
+
+</div>
+
 <?php get_footer(); ?>
