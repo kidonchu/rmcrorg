@@ -22,39 +22,52 @@
 						</header>
 
 						<div class="entry-content">
-							Rocky Mountain Cocker Rescue, Inc. has many ways for you to partner with us to care for our
-							beautiful dogs or contribute towards making a difference in the life of a Cocker Spaniel.
-							Some of our needs are food, feeding bowls, top quality veterinary care, grooming, toys,
-							leashes and bedding.
+							<p>
+								<img class="img-right pull-right" src="http://local.rmcr.org/wp-content/uploads/2014/06/Clover_2-e1404098824923.jpg" alt=""/>
+								Rocky Mountain Cocker Rescue, Inc. has many ways for you to partner with us to care for our
+								beautiful dogs or contribute towards making a difference in the life of a Cocker Spaniel.
+								Some of our needs are food, feeding bowls, top quality veterinary care, grooming, toys,
+								leashes and bedding.
+							</p>
 
-							<span style="color: #663399;"><strong>Online Donation:</strong></span> Safely make a
-							tax-deductible donation to Rocky Msountain Cocker Rescue online with your major credit card
-							by clicking on the Donate button below (your personal information will be secure*).
+							<p>
+								Safely make a tax-deductible donation to Rocky Msountain Cocker Rescue online with
+								your major credit card by clicking on the Donate button below (your personal
+								information will be secure*).
+							</p>
 
-							<form accept-charset="UNKNOWN" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-								<input name="cmd" type="hidden" value="_s-xclick"/> <input name="hosted_button_id"
-								                                                           type="hidden"
-								                                                           value="6250413"/> <input
-									alt="PayPal - The safer, easier way to pay online!" name="submit"
-									src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" type="image"/> <img
-									src="https://www.paypal.com/en_US/i/scr/pixel.gif" alt="" width="1" height="1"
-									border="0"/></form>
-							<span style="color: #663399;"><strong>Donate By Check:</strong></span> Payable to <strong>Rocky
-								Mountain Cocker Rescue</strong> mailed to:
-							<p style="text-align: center;"><span style="color: #663399;"><strong>Rocky Mountain Cocker
-										Rescue, Inc.</strong></span>
-								<span style="color: #663399;"> <strong> PO Box 482</strong></span>
-								<span style="color: #663399;"> <strong> Parker, CO 80134</strong></span></p>
-							<span style="color: #663399;"><strong>Donate Items:</strong></span> Our foster homes can
-							always use items such as dog beds, food/water bowls, blankets, collars, leashes, etc. If you
-							would like to contribute new or gently used condition items, please <a
-								title="Cocker Spaniel Rescue" href="http://rockymountaincockerrescue.org/contact-us/"
-								target="_self">Contact Us</a>.
 
-							<span style="color: #663399;"><strong>Shop:</strong></span> Please visit our online <a
-								title="Cocker Spaniel merchandise"
-								href="http://rockymountaincockerrescue.org/rmcr-store/" target="_self">RMCR Store</a>. All
-							proceeds benefit the Cocker Spaniels in our care.
+							<?php echo Paypal_payment_accept(); ?>
+
+							<h2 class="entry-sub-title">Donate By Check</h2>
+
+							<p>
+								Payable to Rocky Mountain Cocker Rescue <br/>
+								Mail to:
+							</p>
+							<p>
+								<strong>Rocky Mountain Cocker Rescue, Inc.</strong><br/>
+								<strong> PO Box 482</strong><br/>
+								<strong> Parker, CO 80134</strong>
+							</p>
+
+							<h2 class="entry-sub-title">Donate Items</h2>
+
+							<p>
+								Our foster homes can always use items such as dog beds, food/water bowls,
+								blankets, collars, leashes, etc. If you would like to contribute new or
+								gently used condition items, please
+								<a
+									title="Cocker Spaniel Rescue" href="http://rockymountaincockerrescue.org/contact-us/"
+									target="_self">Contact Us</a>.
+							</p>
+
+							<p>
+								Shop: Please visit our online <a
+									title="Cocker Spaniel merchandise"
+									href="http://rockymountaincockerrescue.org/rmcr-store/" target="_self">RMCR Store</a>. All
+								proceeds benefit the Cocker Spaniels in our care.
+							</p>
 
 							<span style="color: #663399;"><strong>Donate</strong></span> using <a
 								href="https://www.coloradogives.org/RockyMountainCockerRescue/overview">Colorado
