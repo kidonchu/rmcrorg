@@ -159,6 +159,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 1.2rem;
 }
 
+b, strong {
+	font-weight: bold;
+}
+
 .entry-title {
 	font-size: 34px;
 	font-size: 3.4rem;
@@ -407,6 +411,11 @@ a:active {
 
 }
 
+#rmcr-form {
+	height: 550px;
+	width: 100%;
+}
+
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/
@@ -545,6 +554,11 @@ a:active {
 	font-variant: small-caps;
 	margin-bottom: 12px;
 	margin-bottom: 1.2rem;
+}
+
+.footer-col ul,
+.footer-col ol {
+	list-style: none;
 }
 
 .main-footer {

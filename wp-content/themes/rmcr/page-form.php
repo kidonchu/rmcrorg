@@ -1,17 +1,13 @@
 <?php
 /**
- * Template Name: Dog Grid
- * The Template for displaying dog grid.
+ * Template Name: Form Page
+ * The Template for forms
  *
  * @package rmcr
  */
 ?>
 
 <?php get_header(); ?>
-<?php
-// need this globally to retrieve from page, and use for each dog post
-$status = false;
-?>
 
 <div class="row">
 
@@ -25,7 +21,6 @@ $status = false;
 					yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
 				} ?>
 
-				<?php $status = get_post_meta( get_the_ID(), 'dog_status', true ); // used for dog grid display ?>
 
 				<header class="entry-header">
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -35,34 +30,9 @@ $status = false;
 					<?php the_content(); ?>
 				</div>
 
-			<?php endif; ?>
-
-			<!-- Display grid of dogs -->
-			<?php $wp_query = new WP_Query( array( 'post_type' => 'dog', 'posts_per_page' => - 1 ) ); ?>
-			<?php if ( $wp_query->have_posts() ) : ?>
-
-				<div class="row dog-grid">
-
-					<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
-
-						<?php $dog = new RMCR_Dog( get_the_ID() ); ?>
-
-						<?php // if status of the dog is specified, filter by status ?>
-						<?php if ( $status != $dog->get_data( 'status' ) ) : ?>
-							<?php continue; ?>
-						<?php endif; ?>
-
-						<div class="col-md-2">
-							<?php $dog->the_dog_block(); ?>
-						</div>
-
-					<?php endwhile; ?>
-
-				</div>
-
-			<?php else : ?>
-
-				<?php get_template_part( 'content', 'none' ); ?>
+				<?php $form_url = get_post_meta( get_the_ID(), 'form_url', true ); ?>
+				<iframe id="rmcr-form" src="<?php echo $form_url; ?>" frameborder="0"></iframe>
+<!--				<iframe id="rmcr-form" width="100%" height="1000px" src="http://rockymountaincockerrescue.org/FORMfields/forms/rmcr_adoption_application.php"></iframe>-->
 
 			<?php endif; ?>
 
