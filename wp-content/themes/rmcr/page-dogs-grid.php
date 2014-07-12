@@ -9,6 +9,7 @@
 
 <?php get_header(); ?>
 <?php
+// need this globally to retrieve from page, and use for each dog post
 $status = false;
 ?>
 
@@ -19,6 +20,10 @@ $status = false;
 		<main id="main" class="site-main" role="main">
 
 			<?php if ( have_posts() ) : the_post(); ?>
+
+				<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
+					yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+				} ?>
 
 				<?php $status = get_post_meta( get_the_ID(), 'dog_status', true ); // used for dog grid display ?>
 
@@ -32,7 +37,7 @@ $status = false;
 
 			<?php endif; ?>
 
-
+			<!-- Display grid of dogs -->
 			<?php $wp_query = new WP_Query( array( 'post_type' => 'dog', 'posts_per_page' => - 1 ) ); ?>
 			<?php if ( $wp_query->have_posts() ) : ?>
 
