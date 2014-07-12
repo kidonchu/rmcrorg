@@ -66,17 +66,18 @@ function Paypal_payment_accept()
     $paypal_subject = get_option('wp_pp_payment_subject');
 
     $itemName1 = get_option('wp_pp_payment_item1');
-    $value1 = get_option('wp_pp_payment_value1');
-    $itemName2 = get_option('wp_pp_payment_item2');
-    $value2 = get_option('wp_pp_payment_value2');
-    $itemName3 = get_option('wp_pp_payment_item3');
-    $value3 = get_option('wp_pp_payment_value3');
-    $itemName4 = get_option('wp_pp_payment_item4');
-    $value4 = get_option('wp_pp_payment_value4');
-    $itemName5 = get_option('wp_pp_payment_item5');
-    $value5 = get_option('wp_pp_payment_value5');
-    $itemName6 = get_option('wp_pp_payment_item6');
-    $value6 = get_option('wp_pp_payment_value6');
+
+	$options = array();
+	for ($i = 1; $i < 7; $i ++) {
+		$value = get_option('wp_pp_payment_value' . $i);
+		if ($value) {
+			$options[] = array(
+				'itemName' => get_option('wp_pp_payment_item' . $i),
+				'value' => $value,
+			);
+		}
+	}
+
     $payment_button = get_option('payment_button_type');
     $wp_pp_show_other_amount = get_option('wp_pp_show_other_amount');
     $wp_pp_show_ref_box = get_option('wp_pp_show_ref_box');
@@ -93,50 +94,30 @@ function Paypal_payment_accept()
     $output .= "<input type=\"hidden\" name=\"business\" value=\"$paypal_email\" />";
     $output .= "<input type=\"hidden\" name=\"item_name\" value=\"$paypal_subject\" />";
     $output .= "<input type=\"hidden\" name=\"currency_code\" value=\"$payment_currency\" />";
-    $output .= "<span style=\"font-size:10.0pt\"><strong> $paypal_subject</strong></span><br /><br />";
+    $output .= '<h3 class="entry-sub-title">' . $paypal_subject . '</h3>';
     $output .= '<select id="amount" name="amount" class="">';
-    $output .= "<option value=\"$value1\">$itemName1</option>";
-    if($value2 != 0)
-    {
-        $output .= "<option value=\"$value2\">$itemName2</option>";
-    }
-    if($value3 != 0)
-    {
-        $output .= "<option value=\"$value3\">$itemName3</option>";
-    }
-    if($value4 != 0)
-    {
-        $output .= "<option value=\"$value4\">$itemName4</option>";
-    }
-    if($value5 != 0)
-    {
-        $output .= "<option value=\"$value5\">$itemName5</option>";
-    }
-    if($value6 != 0)
-    {
-        $output .= "<option value=\"$value6\">$itemName6</option>";
-    }
-
+	foreach ($options as $option) {
+		$output .= '<option value="' . $option['value'] . '">' . $option['itemName'] . '</option>';
+	}
     $output .= '</select>';
 
 	// Show other amount text box
 	if ($wp_pp_show_other_amount == '1')
 	{
-    	$output .= '<br /><br /><strong>Other Amount:</strong>';
-    	$output .= '<br /><br /><input type="text" name="amount" size="10" title="Other donate" value="" />';
+    	$output .= '<strong>Other Amount:</strong>';
+    	$output .= '<input type="text" name="amount" size="10" title="Other donate" value="" />';
 	}
 	
 	// Show the reference text box
 	if ($wp_pp_show_ref_box == '1')
 	{
-		$output .= "<br /><br /><strong> $wp_pp_ref_title :</strong>";
+		$output .= "<strong> $wp_pp_ref_title :</strong>";
     	$output .= '<input type="hidden" name="on0" value="Reference" />';
-    	$output .= '<br /><br /><input type="text" name="os0" maxlength="60" />';
+    	$output .= '<input type="text" name="os0" maxlength="60" />';
 	}
     
     $output .= '
-        <br /><br />
-        <input type="hidden" name="no_shipping" value="0" />
+        <input type="hidden" name="no_shipping" value="1" />
         <input type="hidden" name="no_note" value="1" />
         <input type="hidden" name="mrb" value="3FWGC6LFTMTUG" />
         <input type="hidden" name="bn" value="IC_Sample" />
