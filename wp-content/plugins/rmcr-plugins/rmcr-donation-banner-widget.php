@@ -60,6 +60,8 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 	}
 }
 
-add_action( 'widgets_init', function () {
+function register_donation_banner_widget() {
 	register_widget( 'rmcr_donation_banner_widget' );
-} );
+}
+
+add_action( 'widgets_init', 'register_donation_banner_widget' );

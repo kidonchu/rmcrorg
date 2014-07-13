@@ -61,6 +61,8 @@ class Rmcr_Adoption_Banner_Widget extends WP_Widget {
 	}
 }
 
-add_action( 'widgets_init', function () {
+function register_adoption_banner_widget() {
 	register_widget( 'rmcr_adoption_banner_widget' );
-} );
+}
+
+add_action( 'widgets_init', 'register_adoption_banner_widget' );
