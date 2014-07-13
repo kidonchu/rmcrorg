@@ -1,10 +1,18 @@
 <?php get_header(); ?>
 
-<div class="row">
+</div>
 
-<!--	<div class="hero">-->
-<!--		<img src="http://placehold.it/1170x300" alt="Rocky Mountain Cocker Rescue Org">-->
-<!--	</div>-->
+<div class="hero-wrapper">
+	<div class="container">
+		<div class="hero">
+			<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/large2.jpg" alt="Rocky Mountain Cocker Rescue Org" style="width:100%;height:300px;">
+		</div>
+	</div>
+</div>
+
+<div class="container">
+
+<div class="row">
 
 	<div class="col-md-9">
 

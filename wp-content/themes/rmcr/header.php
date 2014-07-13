@@ -31,20 +31,22 @@
 
 		<div class="container">
 			<div class="site-branding row">
-				<div class="col-md-2">
+				<div class="col-md-3">
 					<a href="<?php echo home_url(); ?>">
-						<img class="header-logo"
-						     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
-						     alt="<?php bloginfo( 'name' ); ?>">
+						<div style="max-height: 120px;overflow-y:hidden;overflow-x:visible;">
+							<img class="header-logo"
+							     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
+							     alt="<?php bloginfo( 'name' ); ?>">
+						</div>
 					</a>
 				</div>
-				<div class="col-md-10">
+				<div class="col-md-9">
 					<?php
 					wp_nav_menu( array(
 						'container'       => 'nav',
 						'container_class' => 'navbar navbar-default',
 						'theme_location'  => 'primary',
-						'menu_class'      => 'nav nav-pills',
+						'menu_class'      => 'nav nav-pills pull-right',
 						'depth'           => 3,
 						'fallback_cb'     => false,
 						'walker'          => new RMCR_Nav_Walker(),

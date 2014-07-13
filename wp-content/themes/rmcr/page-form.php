@@ -21,6 +21,7 @@
 					yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
 				} ?>
 
+				<img class="page-hero" src="<?php bloginfo('stylesheet_directory'); ?>/images/large1.jpg" alt="" />
 
 				<header class="entry-header">
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
