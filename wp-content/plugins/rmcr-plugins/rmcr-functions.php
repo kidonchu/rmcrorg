@@ -111,8 +111,17 @@ function rmcr_register_widget_areas() {
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget featured-dog-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'New Story', 'rmcr' ),
+		'id'            => 'new-story',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget new-story-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title"><a href="' . esc_url(home_url('blog')) . '">',
+		'after_title'   => '</a></h3>',
 	) );
 }
 
