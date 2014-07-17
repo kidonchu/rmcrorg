@@ -76,7 +76,7 @@ add_action( 'init', 'register_custom_post_type_product' );
 
 // Custom template for Dog & Product
 function my_cpt_post_types( $post_types ) {
-	$post_types = array('post', 'dog', 'product');
+	$post_types = array( 'post', 'dog', 'product' );
 	return $post_types;
 }
 
@@ -172,7 +172,7 @@ function setup_admin() {
 /**
  * Load Dog class
  */
-require get_template_directory() . '/inc/classes/rmcr-dog.php';
+require dirname( __FILE__ ) . '/classes/rmcr-dog.php';
 
 /**
  * Load Donation Banner Widget
