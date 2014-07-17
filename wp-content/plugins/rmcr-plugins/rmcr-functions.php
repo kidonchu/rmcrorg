@@ -39,7 +39,42 @@ function register_custom_post_type_dog() {
 
 add_action( 'init', 'register_custom_post_type_dog' );
 
-// Custom template for Dog
+/* Custom Post Type: Product */
+function register_custom_post_type_product() {
+	register_post_type( 'product', array(
+		'label'           => 'Products',
+		'description'     => 'Custom Post Type: Product',
+		'public'          => true,
+		'show_ui'         => true,
+		'show_in_menu'    => true,
+		'capability_type' => 'post',
+		'map_meta_cap'    => true,
+		'hierarchical'    => false,
+		'rewrite'         => array( 'slug' => 'rmcr-store', 'with_front' => true ),
+		'query_var'       => true,
+		'supports'        => array( 'title', 'trackbacks', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'post-formats' ),
+		'labels'          => array(
+			'name'               => 'Products',
+			'singular_name'      => 'Product',
+			'menu_name'          => 'Products',
+			'add_new'            => 'Add Products',
+			'add_new_item'       => 'Add New Products',
+			'edit'               => 'Edit',
+			'edit_item'          => 'Edit Products',
+			'new_item'           => 'New Products',
+			'view'               => 'View Products',
+			'view_item'          => 'View Products',
+			'search_items'       => 'Search Products',
+			'not_found'          => 'No Products Found',
+			'not_found_in_trash' => 'No Products Found in Trash',
+			'parent'             => 'Parent Product',
+		)
+	) );
+}
+
+add_action( 'init', 'register_custom_post_type_product' );
+
+// Custom template for Dog & Product
 function my_cpt_post_types( $post_types ) {
 	$post_types[ ] = 'dog';
 	return $post_types;
