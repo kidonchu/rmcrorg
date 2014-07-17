@@ -76,11 +76,12 @@ add_action( 'init', 'register_custom_post_type_product' );
 
 // Custom template for Dog & Product
 function my_cpt_post_types( $post_types ) {
-	$post_types[ ] = 'dog';
+	$post_types = array('post', 'dog', 'product');
 	return $post_types;
 }
 
 add_filter( 'cpt_post_types', 'my_cpt_post_types' );
+add_filter( 'images_cpt', 'my_cpt_post_types' );
 
 /**
  * Register widget area.
@@ -155,7 +156,7 @@ function rmcr_register_widget_areas() {
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget new-story-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title"><a href="' . esc_url(home_url('blog')) . '">',
+		'before_title'  => '<h3 class="widget-title"><a href="' . esc_url( home_url( 'blog' ) ) . '">',
 		'after_title'   => '</a></h3>',
 	) );
 }
@@ -163,7 +164,7 @@ function rmcr_register_widget_areas() {
 add_action( 'widgets_init', 'rmcr_register_widget_areas' );
 
 // custom admin settings
-function setup_admin(){
+function setup_admin() {
 	add_options_page( 'Google Calendar Events', 'Google Calendar Events', 'manage_options', basename( __FILE__ ), array( $this, 'admin_page' ) );
 	add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 }
@@ -176,9 +177,9 @@ require get_template_directory() . '/inc/classes/rmcr-dog.php';
 /**
  * Load Donation Banner Widget
  */
-require dirname(__FILE__) . '/rmcr-donation-banner-widget.php';
+require dirname( __FILE__ ) . '/rmcr-donation-banner-widget.php';
 
 /**
  * Load Adoption Banner Widget
  */
-require dirname(__FILE__) . '/rmcr-adoption-banner-widget.php';
+require dirname( __FILE__ ) . '/rmcr-adoption-banner-widget.php';
