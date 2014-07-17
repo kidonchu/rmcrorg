@@ -175,6 +175,11 @@ function setup_admin() {
 require dirname( __FILE__ ) . '/classes/rmcr-dog.php';
 
 /**
+ * Load Product class
+ */
+require dirname( __FILE__ ) . '/classes/rmcr-product.php';
+
+/**
  * Load Donation Banner Widget
  */
 require dirname( __FILE__ ) . '/rmcr-donation-banner-widget.php';
