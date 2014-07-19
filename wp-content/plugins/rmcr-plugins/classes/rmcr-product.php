@@ -5,12 +5,10 @@ class RMCR_Product {
 	private $_id;
 	private $_data = array();
 	private $_fields = array(
-		'name', 'status', 'rmcr_id', 'gender', 'age', 'adoption_fee',
-		'short_description', 'description', 'not_good_with',
-		'photo1', 'photo2', 'photo3', 'photo4',
+		'status', 'price', 'option1', 'option2', 'option3', 'description',
 	);
 	private $_required_fields = array(
-		'name', 'status', 'rmcr_id', 'gender', 'age', 'short_description', 'description',
+		'status', 'price', 'description',
 	);
 
 	public function __construct( $id = false ) {
@@ -32,70 +30,13 @@ class RMCR_Product {
 		return true;
 	}
 
-	public function get_status_label() {
-		$html = '';
-
-		$status = $this->get_data( 'status' );
-		if ( $status ) {
-			switch ( $status ) {
-				case 'Pending':
-					$html = '<span class="label label-danger">PENDING</span>';
-					break;
-				case 'Adoptable':
-					$html = '<span class="label label-success">ADOPTABLE</span>';
-					break;
-				case 'Adopted':
-					$html = '<span class="label label-info">ADOPTED</span>';
-					break;
-				default:
-					$html = '<span class="label label-default">UNKNOWN</span>';
-			}
+	public function get_price() {
+		$ret = '';
+		$price = $this->get_data( 'price' );
+		if ( $price ) {
+			$ret = '$' . number_format($price, 2, '.', ',');
 		}
-
-		return $html;
-	}
-
-	public function get_age_translated() {
-		$ret = false;
-
-		$age = $this->get_data( 'age' );
-		if ( $age ) {
-			switch ( $age ) {
-				case 1:
-				case 2:
-				case 3:
-					$ret = 'Puppy';
-					break;
-				case 4:
-				case 5:
-				case 6:
-					$ret = 'Young';
-					break;
-				case 7:
-				case 9:
-				case 10:
-					$ret = 'Adult';
-					break;
-				default:
-					$ret = 'Senior';
-			}
-		}
-
 		return $ret;
-	}
-
-	public function get_adopt_link() {
-		if ( $this->get_data( 'name' ) ) {
-			return '<a href="#" class="btn btn-warning pull-right">Adopt ' . $this->get_data( 'name' ) . ' Now</a>';
-		}
-		return '';
-	}
-
-	public function get_not_good_with_translated() {
-		if ( $this->get_data( 'not_good_with' ) ) {
-			return implode( ', ', $this->get_data( 'not_good_with' ) );
-		}
-		return '';
 	}
 
 	public function set_data( $key, $value ) {
@@ -117,29 +58,27 @@ class RMCR_Product {
 		return null;
 	}
 
-	public function the_dog_block() {
+	public function the_product_block() {
 		?>
 
-		<div class="dog-block">
+		<div class="product-block">
+
+			<?php $images = get_images_src(); ?>
 
 			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
-				<img class="dog-thumb"
-				     src="<?php echo $this->get_data( 'photo1' ) ?>"
-				     alt="<?php echo $this->get_data( 'name' ) ?>"/>
+				<img class="product-thumb"
+				     src="<?php echo $images['image1'][0]; ?>"
+				     alt="<?php the_title(); ?>"/>
 			</a>
 
 			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
-				<h3 class="dog-title">
-					<?php echo $this->get_data( 'name' ) ?>
+				<h3 class="product-title">
+					<?php the_title(); ?>
 				</h3>
 			</a>
 
-			<p class="dog-description">
-				<?php echo $this->get_status_label(); ?><br/>
-				<strong>Gender:</strong>
-				<?php echo $this->get_data( 'gender' ); ?><br/>
-				<strong>Age:</strong>
-				<?php echo $this->get_age_translated(); ?>
+			<p class="product-description">
+				<?php echo $this->get_data('description'); ?><br/>
 			</p>
 
 		</div>
