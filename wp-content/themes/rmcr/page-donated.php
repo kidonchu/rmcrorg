@@ -57,24 +57,17 @@
 								Our foster homes can always use items such as dog beds, food/water bowls,
 								blankets, collars, leashes, etc. If you would like to contribute new or
 								gently used condition items, please
-								<a
-									title="Cocker Spaniel Rescue" href="http://rockymountaincockerrescue.org/contact-us/"
-									target="_self">Contact Us</a>.
+								<a title="Cocker Spaniel Rescue" href="http://rockymountaincockerrescue.org/contact-us/" target="_self">Contact Us</a>.
 							</p>
 
 							<p>
-								Shop: Please visit our online <a
-									title="Cocker Spaniel merchandise"
-									href="http://rockymountaincockerrescue.org/rmcr-store/" target="_self">RMCR Store</a>. All
+								Shop: Please visit our online <a title="Cocker Spaniel merchandise" href="http://rockymountaincockerrescue.org/rmcr-store/" target="_self">RMCR Store</a>. All
 								proceeds benefit the Cocker Spaniels in our care.
 							</p>
 
-							<span style="color: #663399;"><strong>Donate</strong></span> using <a
-								href="https://www.coloradogives.org/RockyMountainCockerRescue/overview">Colorado
-								Gives</a>.
+							<span style="color: #663399;"><strong>Donate</strong></span> using <a href="https://www.coloradogives.org/RockyMountainCockerRescue/overview">Colorado Gives</a>.
 
-							Visit our <a title="Friends of Cocker Spaniels"
-							             href="http://rockymountaincockerrescue.org/friends-of-rmcr/" target="_self">Friends</a> page
+							Visit our <a title="Friends of Cocker Spaniels" href="http://rockymountaincockerrescue.org/friends-of-rmcr/" target="_self">Friends</a> page
 							to see some truly dedicated groups who have already made a commitment to Rocky Mountain
 							Cocker Rescue, Inc.!
 							<p style="text-align: center;"><strong>Thank you for your many years of support!</strong>

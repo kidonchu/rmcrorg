@@ -31,16 +31,16 @@
 
 		<div class="container">
 			<div class="site-branding row">
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<a href="<?php echo home_url(); ?>">
 						<div style="max-height: 120px;overflow-y:hidden;overflow-x:visible;">
 							<img class="header-logo"
-							     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo_main.png"
+							     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo-main.png"
 							     alt="<?php bloginfo( 'name' ); ?>">
 						</div>
 					</a>
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-8">
 					<?php
 					wp_nav_menu( array(
 						'container'       => 'nav',
