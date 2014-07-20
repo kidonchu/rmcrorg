@@ -368,7 +368,6 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
-.byline,
 .updated {
 	display: none;
 }
@@ -771,4 +770,81 @@ img.full-width {
 	padding-top: 2.4rem;
 	margin-bottom: 12px;
 	margin-bottom: 1.2rem;
+}
+
+.archive .entry-title {
+	/*margin-bottom: 6px;*/
+	/*margin-bottom: .6rem;*/
+	margin-bottom: 0;
+}
+.archive .entry-meta {
+	margin-bottom: 12px;
+	margin-bottom: 1.2rem;
+}
+
+.archive .cat-links a:active,
+.archive .cat-links a:visited {
+	color: #d17105;
+}
+
+.byline,
+.posted-on {
+	color: #888;
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+.byline a,
+.byline a:hover,
+.byline a:active,
+.byline a:visited {
+	color: #888;
+}
+
+.byline {
+	padding-right: 5px;
+}
+
+.posted-on:before {
+	content: "•";
+	display: inline-block;
+	padding-right: 5px;
+}
+
+.entry-title a,
+.entry-title a:hover,
+.entry-title a:active,
+.entry-title a:visited {
+	color: #414141;
+}
+
+
+.archive .entry-thumb {
+	height: 150px;
+	width: 100%;
+	border: 1px solid #ccc;
+}
+
+.archive article.post {
+	border-bottom: 1px solid #e4e4e4;
+	/*padding-bottom: 24px;*/
+	/*padding-bottom: 2.4rem;*/
+}
+
+.archive article.post p {
+	margin-bottom: 0;
+}
+
+.read-more {
+	display: block;
+	margin-top: 12px;
+	margin-top: 1.2rem;
+}
+
+.hide {
+	display: none;
+}
+
+.page-header {
+	border: none;
 }
