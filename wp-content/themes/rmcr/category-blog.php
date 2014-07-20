@@ -10,31 +10,24 @@
 
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-			<h1 class="hide"><?php single_cat_title(); ?></h1>
+				<h1 class="hide"><?php single_cat_title(); ?></h1>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+				<?php /* Start the Loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-				$name = get_post_format();
-				get_template_part( 'content', $name );
-				?>
+					<?php get_template_part( 'content', get_post_format() ); ?>
 
-			<?php endwhile; ?>
+				<?php endwhile; ?>
 
-			<?php rmcr_paging_nav(); ?>
+				<?php rmcr_paging_nav(); ?>
 
-		<?php else : ?>
+			<?php else : ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+				<?php get_template_part( 'content', 'none' ); ?>
 
-		<?php endif; ?>
+			<?php endif; ?>
 
 		</main>
 
