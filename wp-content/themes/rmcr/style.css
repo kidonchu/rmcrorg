@@ -389,6 +389,10 @@ a:active {
 .dog-carousel {
 	min-height: 225px;
 	max-height: 225px;
+	border: 1px solid #ccc;
+}
+.carousel-control:visited {
+	color: white;
 }
 
 .dog-block {
@@ -847,4 +851,9 @@ img.full-width {
 
 .page-header {
 	border: none;
+}
+
+.dog-carousel {
+	margin-bottom: 24px;
+	margin-bottom: 2.4rem;
 }

@@ -86,7 +86,7 @@ class RMCR_Dog {
 
 	public function get_adopt_link() {
 		if ( $this->get_data( 'name' ) ) {
-			return '<a href="#" class="btn btn-warning pull-right">Adopt ' . $this->get_data( 'name' ) . ' Now</a>';
+			return '<a href="' . get_home_url( null, 'adoption-information' ) . '" class="btn btn-warning pull-right">Adopt ' . $this->get_data( 'name' ) . ' Now</a>';
 		}
 		return '';
 	}
@@ -151,8 +151,7 @@ class RMCR_Dog {
 		return WP_Post::get_instance( $this->_id );
 	}
 
-	public function get_permalink()
-	{
-		return get_the_permalink($this->_id);
+	public function get_permalink() {
+		return get_the_permalink( $this->_id );
 	}
 }
