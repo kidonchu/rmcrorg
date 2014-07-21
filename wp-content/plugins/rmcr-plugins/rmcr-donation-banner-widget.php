@@ -15,6 +15,7 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+		$banner_path = $instance['banner_path'];
 
 		echo $args[ 'before_widget' ];
 
@@ -27,7 +28,7 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 			<a href="<?php echo home_url( 'ways-to-help/donate' ) ?>"
 			   title="Donate to RMCR">
 				<img class="banner-widget-img"
-				     src="http://local.rmcr.org/wp-content/uploads/2014/07/donation-banner.jpg"
+				     src="<?php echo $banner_path; ?>"
 				     alt="Donation Banner"/>
 			</a>
 		</div>
@@ -43,6 +44,9 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 		} else {
 			$title = __( 'New title', 'rmcr_donation_banner_widget_domain' );
 		}
+
+		$banner_path = isset( $instance[ 'banner_path' ] ) ?
+			$instance[ 'banner_path' ] : '';
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -50,12 +54,19 @@ class Rmcr_Donation_Banner_Widget extends WP_Widget {
 			       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
 			       value="<?php echo esc_attr( $title ); ?>"/>
 		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'banner_path' ); ?>"><?php _e( 'Banner Image Path:' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'banner_path' ); ?>"
+			       name="<?php echo $this->get_field_name( 'banner_path' ); ?>" type="text"
+			       value="<?php echo esc_attr( $banner_path ); ?>"/>
+		</p>
 	<?php
 	}
 
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance[ 'title' ] = ( ! empty( $new_instance[ 'title' ] ) ) ? strip_tags( $new_instance[ 'title' ] ) : '';
+		$instance[ 'banner_path' ] = ( ! empty( $new_instance[ 'banner_path' ] ) ) ? strip_tags( $new_instance[ 'banner_path' ] ) : '';
 		return $instance;
 	}
 }
