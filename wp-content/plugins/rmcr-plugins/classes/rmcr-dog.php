@@ -96,9 +96,11 @@ class RMCR_Dog {
 
 	public function get_not_good_with_translated() {
 		if ( $this->get_data( 'not_good_with' ) ) {
-			return implode( ', ', $this->get_data( 'not_good_with' ) );
+			$str = implode( ', ', $this->get_data( 'not_good_with' ) );
+		} else {
+			$str = 'N/A';
 		}
-		return '';
+		return $str;
 	}
 
 	public function set_data( $key, $value ) {
@@ -170,5 +172,9 @@ class RMCR_Dog {
 
 	public function get_permalink() {
 		return get_the_permalink( $this->_id );
+	}
+
+	public function get_post_id() {
+		return $this->_id;
 	}
 }
