@@ -42,12 +42,15 @@
 				</div>
 				<div class="col-md-8">
 					<nav class="sub-nav">
-						<ul class="list-unstyled">
+						<ul>
 							<li>
-								<a href="<?php echo get_home_url(null, 'about-us'); ?>">About Us</a>
+								<a href="<?php echo home_url('about-us'); ?>">About Us</a>
 							</li>
 							<li>
-								<a href="<?php echo get_home_url(null, 'contact-us'); ?>">Contact Us</a>
+								<a href="<?php echo home_url('events'); ?>">Events</a>
+							</li>
+							<li>
+								<a href="<?php echo home_url('contact-us'); ?>">Contact Us</a>
 							</li>
 						</ul>
 

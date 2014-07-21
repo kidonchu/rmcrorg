@@ -36,25 +36,25 @@
 					<?php Rds::show_slider() ?>
 				<?php endif; ?>
 
-				<div class="row">
+			</div>
 
-					<div class="col-md-4">
+			<div class="row">
 
-						<?php dynamic_sidebar( 'featured-dog' ); ?>
+				<div class="col-md-4">
 
-					</div>
+					<?php dynamic_sidebar( 'featured-dog' ); ?>
 
-					<div class="col-md-4">
+				</div>
 
-						<header class="col-header">
+				<div class="col-md-4">
+
+					<header class="col-header">
 
 						<?php dynamic_sidebar( 'new-story' ) ?>
 
-						</header>
+					</header>
 
-					</div>
 				</div>
-
 			</div>
 
 		</div>
