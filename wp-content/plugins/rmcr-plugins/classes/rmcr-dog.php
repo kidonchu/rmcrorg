@@ -41,6 +41,9 @@ class RMCR_Dog {
 				case 'Pending':
 					$html = '<span class="label label-danger">PENDING</span>';
 					break;
+				case 'Sidelined':
+					$html = '<span class="label label-warning">SIDELINED</span>';
+					break;
 				case 'Adoptable':
 					$html = '<span class="label label-success">ADOPTABLE</span>';
 					break;
@@ -122,24 +125,38 @@ class RMCR_Dog {
 
 		<div class="dog-block">
 
-			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
-				<img class="dog-thumb"
-				     src="<?php echo $this->get_data( 'photo1' ) ?>"
-				     alt="<?php echo $this->get_data( 'name' ) ?>"/>
-			</a>
+			<?php $images = get_images_src(); ?>
 
 			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
-				<h3 class="dog-title">
-					<?php echo $this->get_data( 'name' ) ?>
-				</h3>
+				<?php if ( isset( $images[ 'image1' ] ) ) : ?>
+					<img class="dog-thumb"
+					     src="<?php echo $images[ 'image1' ][ 0 ]; ?>"
+					     alt="<?php echo $this->get_data( 'name' ) ?>"/>
+				<?php else: ?>
+					<img class="dog-thumb"
+					     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/image_placeholder.jpg"
+					     alt="<?php echo $this->get_data( 'name' ) ?>"/>
+				<?php endif; ?>
 			</a>
+
+			<h3 class="dog-title">
+				<a href="<?php echo get_the_permalink( $this->_id ); ?>">
+					<?php echo $this->get_data( 'name' ) ?>
+				</a>
+			</h3>
 
 			<p class="dog-description">
-				<?php echo $this->get_status_label(); ?><br/>
-				<strong>Gender:</strong>
-				<?php echo $this->get_data( 'gender' ); ?><br/>
-				<strong>Age:</strong>
-				<?php echo $this->get_age_translated(); ?>
+				<span class="dog-status">
+					<?php echo $this->get_status_label(); ?>
+				</span>
+				<span class="dog-gender">
+					<strong>Gender:</strong>
+					<?php echo $this->get_data( 'gender' ); ?>
+				</span>
+				<span class="dog-age">
+					<strong>Age:</strong>
+					<?php echo $this->get_age_translated(); ?>
+				</span>
 			</p>
 
 		</div>

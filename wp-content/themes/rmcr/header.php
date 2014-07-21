@@ -41,6 +41,17 @@
 					</a>
 				</div>
 				<div class="col-md-8">
+					<nav class="sub-nav">
+						<ul class="list-unstyled">
+							<li>
+								<a href="<?php echo get_home_url(null, 'about-us'); ?>">About Us</a>
+							</li>
+							<li>
+								<a href="<?php echo get_home_url(null, 'contact-us'); ?>">Contact Us</a>
+							</li>
+						</ul>
+
+					</nav>
 					<?php
 					wp_nav_menu( array(
 						'container'       => 'nav',
