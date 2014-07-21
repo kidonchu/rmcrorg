@@ -387,8 +387,7 @@ a:active {
 }
 
 .dog-carousel {
-	min-height: 225px;
-	max-height: 225px;
+	height: 336px;
 	border: 1px solid #ccc;
 }
 .carousel-control:visited {
@@ -543,6 +542,7 @@ a:active {
 	border: 0;
 	border-radius: 0;
 	background-color: transparent;
+	clear:both;
 	/*position: relative;*/
 	/*top: 50px;*/
 	/*margin-top: 60px;*/
@@ -903,4 +903,23 @@ img.full-width {
 .dog-block {
 	margin-bottom: 24px;
 	margin-bottom: 2.4rem;
+}
+
+.home-title {
+	margin-bottom: 24px;
+	margin-bottom: 2.4rem;
+}
+
+.widget-title {
+	margin-bottom: 24px;
+	margin-bottom: 2.4rem;
+}
+
+.dog-slider {
+	margin-bottom: 24px;
+	margin-bottom: 2.4rem;
+}
+
+#slides {
+	display: none;
 }

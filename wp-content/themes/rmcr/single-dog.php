@@ -43,56 +43,18 @@
 
 								<div class="row">
 
-									<div class="col-md-6">
+									<div class="col-md-5">
 
 										<?php $images = get_images_src(); ?>
-										<?php $num_images = count($images); ?>
-
-										<div id="carousel-example-generic" class="carousel slide dog-carousel" data-ride="carousel">
-
-											<!-- Indicators -->
-											<ol class="carousel-indicators">
-												<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-												<?php for($i = 1; $i < $num_images; $i ++): ?>
-													<li data-target="#carousel-example-generic" data-slide-to="<?php echo $i; ?>"></li>
-												<?php endfor; ?>
-											</ol>
-
-											<!-- Wrapper for slides -->
-											<div class="carousel-inner">
-
-												<div class="item active">
-													<img src="<?php echo $images['image1'][0]; ?>" alt="">
-													<div class="carousel-caption">
-													</div>
-												</div>
-
-												<?php unset($images['image1']) ?>
-
-												<?php foreach($images as $key => $image) : ?>
-													<div class="item">
-														<img src="<?php echo $image[0]; ?>" alt="...">
-
-														<div class="carousel-caption">
-														</div>
-													</div>
-												<?php endforeach; ?>
-											</div>
-
-											<!-- Controls -->
-											<a class="left carousel-control" href="#carousel-example-generic" role="button"
-											   data-slide="prev">
-												<span class="glyphicon glyphicon-chevron-left"></span>
-											</a>
-											<a class="right carousel-control" href="#carousel-example-generic" role="button"
-											   data-slide="next">
-												<span class="glyphicon glyphicon-chevron-right"></span>
-											</a>
+										<div id="slides">
+											<?php foreach($images as $key => $image) : ?>
+												<img src="<?php echo $image[0]; ?>">
+											<?php endforeach; ?>
 										</div>
 
 									</div>
 
-									<div class="col-md-6">
+									<div class="col-md-7">
 
 										<h2 class="entry-sub-title">Description</h2>
 
