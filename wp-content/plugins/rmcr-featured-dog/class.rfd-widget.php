@@ -83,8 +83,11 @@ class Rfd_Widget extends WP_Widget {
 
 		<?php if ( $dog ) : ?>
 			<?php echo $title ?>
-			<a href="<?php echo $dog->get_permalink(); ?>"><?php echo $dog->get_data( 'name' ); ?></a>
-			<img src="<?php echo $dog->get_data( 'photo1' ); ?>" alt="<?php $dog->get_data( 'rmcr_id' ); ?>">
+			<a href="<?php echo $dog->get_permalink(); ?>" title="<?php echo $dog->get_data( 'name' ); ?>">
+				<?php echo $dog->get_data( 'name' ); ?>
+			</a>
+			<?php $images = get_images_src('full', false, $dog->get_post_id()); ?>
+			<img src="<?php echo $images['images'][0]; ?>" alt="<?php $dog->get_data( 'rmcr_id' ); ?>"/>
 			<p>
 				<strong>Gender:</strong>
 				<?php echo $dog->get_data('gender'); ?><br/>
