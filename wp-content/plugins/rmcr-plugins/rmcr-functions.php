@@ -15,7 +15,7 @@ function register_custom_post_type_dog() {
 		'capability_type' => 'post',
 		'map_meta_cap'    => true,
 		'hierarchical'    => false,
-		'rewrite'         => array( 'slug' => 'dogs', 'with_front' => true ),
+		'rewrite'         => array( 'slug' => 'rmcr-dogs', 'with_front' => true ),
 		'query_var'       => true,
 		'supports'        => array( 'title', 'trackbacks', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'post-formats' ),
 		'labels'          => array(

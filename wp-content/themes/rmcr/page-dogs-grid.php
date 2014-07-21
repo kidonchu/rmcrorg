@@ -48,7 +48,7 @@ $status = false;
 						<?php $dog = new RMCR_Dog( get_the_ID() ); ?>
 
 						<?php // if status of the dog is specified, filter by status ?>
-						<?php if ( $status != $dog->get_data( 'status' ) ) : ?>
+						<?php if ( $status != 'All' && $status != $dog->get_data( 'status' ) ) : ?>
 							<?php continue; ?>
 						<?php endif; ?>
 
