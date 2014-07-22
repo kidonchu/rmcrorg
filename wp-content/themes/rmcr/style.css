@@ -551,12 +551,27 @@ a:active {
 	/*box-shadow: 0 8px 6px -6px black;*/
 }
 
-.menu-item a,
-.menu-item a:visited,
-.menu-item a:focus,
-.menu-item a:active {
-	font-weight: bold;
+/*.menu-item a,*/
+/*.menu-item a:visited,*/
+/*.menu-item a:focus,*/
+/*.menu-item a:active {*/
+	/*font-weight: bold;*/
+	/*color: #555555;*/
+/*}*/
+/*.menu-item a:hover {*/
+	/*color: #888888;*/
+	/*text-decoration: none;*/
+/*}*/
+
+.site-footer a,
+.site-footer a:visited,
+.site-footer a:focus,
+.site-footer a:active {
 	color: #555555;
+}
+.site-footer a:hover {
+	color: #888888;
+	text-decoration: none;
 }
 
 /*.menu-item a:hover {*/
@@ -612,10 +627,6 @@ a:active {
 	list-style: none;
 }
 
-.main-footer {
-	background: #b5227f;
-}
-
 .footer-widget {
 	padding-top: 24px;
 	padding-top: 2.4rem;
@@ -632,6 +643,17 @@ a:active {
 	font-size: 1.4rem;
 	margin: 0;
 }
+
+.main-footer .menu-item a,
+.main-footer .menu-item a:active,
+.main-footer .menu-item a:visited {
+	color: #666;
+}
+
+.main-footer .menu-item a:hover {
+	color: #999;
+}
+
 
 /*--------------------------------------------------------------
 11.0 Infinite scroll
@@ -922,4 +944,17 @@ img.full-width {
 
 #slides {
 	display: none;
+}
+
+.bottom-footer {
+	background-color: #313131;
+	color: #bdbdbd;
+	font-size: 12px;
+	font-size: 1.2rem;
+	padding: 24px 0;
+	padding: 2.4rem 0;
+}
+
+.bottom-footer p {
+	margin-bottom: 0;
 }

@@ -142,6 +142,24 @@ function rmcr_register_widget_areas() {
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
+		'name'          => __( 'Footer 4', 'rmcr' ),
+		'id'            => 'footer-4',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="footer-col-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer 5', 'rmcr' ),
+		'id'            => 'footer-5',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4>',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
 		'name'          => __( 'Featured Dog', 'rmcr' ),
 		'id'            => 'featured-dog',
 		'description'   => '',
