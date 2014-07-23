@@ -1,0 +1,958 @@
+/*
+Theme Name: rmcr
+Theme URI: http://underscores.me/
+Author: Kidon Chu
+Author URI: http://kidonchu.com
+Description: This theme is for Rocky Mountain Cocker Rescue Organization Website
+Version: 1.0-wpcom
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rmcr
+Domain Path: /languages/
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+ rmcr is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Reset
+2.0 - Typography
+3.0 - Elements
+4.0 - Forms
+5.0 - Navigation
+	5.1 - Links
+	5.2 - Menus
+6.0 - Accessibility
+7.0 - Alignments
+8.0 - Clearings
+9.0 - Widgets
+10.0 - Content
+	10.1 - Posts and pages
+	10.2 - Asides
+	10.3 - Comments
+11.0 - Infinite scroll
+12.0 - Media
+	12.1 - Captions
+	12.2 - Galleries
+--------------------------------------------------------------*/
+
+@import url(http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic);
+
+
+/*--------------------------------------------------------------
+1.0 - Reset
+--------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+  overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+  -webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+  -ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+
+*,
+*:before,
+*:after {
+  /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+  -webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+  -moz-box-sizing: border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff; /* Fallback for when there is no custom background color defined. */
+}
+
+hgroup, ul, ol, dl, blockquote,
+p, address, table, fieldset, figure, pre, .post,
+.entry-meta, .entry-head, .entry-title, .entry-sub-title, .entry-content, .hero,
+.comment, .comment-navigation, iframe, #accept_paypal_payment_form,
+.hero-wrapper {
+  margin-top: 0;
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+  color: #212121;
+  font-family: Cabin, sans-serif;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 24px;
+  line-height: 2.4rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+.entry-title {
+  font-size: 34px;
+  font-size: 3.4rem;
+}
+
+.home-title,
+.entry-sub-title {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+.dl-horizontal dt {
+  text-align: left;
+}
+
+.img-right,
+.img-left {
+  border: 3px solid #ebebeb;
+}
+
+.img-right {
+  margin-left: 24px;
+  margin-left: 2.4rem;
+}
+
+.img-left {
+  margin-right: 24px;
+  margin-right: 2.4rem;
+}
+
+/*--------------------------------------------------------------
+4.0 Forms
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+5.0 Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
+/*a,*/
+/*a:focus,*/
+/*a:active {*/
+/*color: #d17105;*/
+/*}*/
+a {
+  color: #FF8F12;
+}
+a:hover {
+  color: #D17105;
+}
+
+/*a:hover {*/
+/*color: #0099ff;*/
+/*text-decoration: none;*/
+/*}*/
+
+/*a:visited {*/
+/*color: #002A40;*/
+/*}*/
+
+/*.entry-content a,*/
+/*.entry-footer a {*/
+/*text-decoration: underline;*/
+/*}*/
+
+/*--------------------------------------------------------------
+5.2 Menus
+--------------------------------------------------------------*/
+/* Small menu */
+.menu-toggle {
+  display: none;
+}
+
+.site-main .comment-navigation,
+.site-main .paging-navigation,
+.site-main .post-navigation {
+  margin: 0 0 1.5em;
+  overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+  float: left;
+  width: 50%;
+}
+
+.comment-navigation .nav-next,
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+
+/*--------------------------------------------------------------
+6.0 Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar */
+}
+
+/*--------------------------------------------------------------
+7.0 Alignments
+--------------------------------------------------------------*/
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+8.0 Clearings
+--------------------------------------------------------------*/
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: '';
+  display: table;
+}
+
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both;
+}
+
+/*--------------------------------------------------------------
+9.0 Widgets
+--------------------------------------------------------------*/
+.widget {
+  margin: 0 0 24px;
+  margin: 0 0 2.4rem;
+}
+
+/* Make sure select elements fit in widgets */
+.widget select {
+  max-width: 100%;
+}
+
+/* Search widget */
+.widget_search .search-submit {
+  display: none;
+}
+
+.event-promotion-widget {
+  background-color: gold;
+  min-height: 150px;
+  min-width: 100%;
+}
+
+/*--------------------------------------------------------------
+10.0 Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+10.1 Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+}
+
+.hentry {
+  margin: 0 0 1.5em;
+}
+
+.updated {
+  display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+  display: inline;
+}
+
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+
+.entry-content > :last-child {
+  margin-bottom: 0;
+}
+
+.dog-carousel {
+  height: 336px;
+  border: 1px solid #ccc;
+}
+.carousel-control:visited {
+  color: white;
+}
+
+.dog-block {
+  font-size: 14px;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  background: #eee;
+  padding: 6px;
+}
+
+.dog-block .dog-thumb {
+  border: 3px solid #dddddd;
+  height: 100px;
+  width: 100%;
+}
+
+.dog-block .dog-title {
+  margin-bottom: 0;
+}
+
+.dog-block .dog-description {
+  margin-bottom:0;
+}
+
+.dog-block span.label {
+  display: block;
+  width: 100%;
+}
+
+.dog-block .dog-title,
+.dog-block .dog-status,
+.dog-block .dog-gender,
+.dog-block .dog-age {
+  display: block;
+  line-height: 16px;
+  line-height: 1.6rem;
+  margin-bottom: 6px;
+  margin-bottom: .6rem;
+}
+
+.product-thumb {
+  border: 3px solid #dddddd;
+  height: 100px;
+  width: 100%;
+}
+
+#rmcr-form {
+  height: 550px;
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+10.2 Asides
+--------------------------------------------------------------*/
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none;
+}
+
+/*--------------------------------------------------------------
+10.3 Comments
+--------------------------------------------------------------*/
+.comment-content a {
+  word-wrap: break-word;
+}
+
+.bypostauthor {
+}
+
+/*--------------------------------------------------------------
+10.4 Sidebar
+--------------------------------------------------------------*/
+.sidebar {
+  background: #a9becf;
+  border-radius: 5px;
+  border-radius: .5rem;
+  padding: 24px 12px;
+  padding: 2.4rem 1.2rem;
+  border: 1px solid #94a6b5;
+}
+
+.sidebar .gce-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.banner-widget-img {
+  width: 100%;
+}
+
+.widget .event-start-date,
+.widget .event-end-date,
+.widget .event-location,
+.widget .event-start-date,
+.widget .event-description {
+  display: none;
+}
+
+.widget .event-title {
+  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.gce-widget-list .gce-list .gce-list-event {
+  background-color: transparent;
+}
+
+.widget .mc4wp-form label {
+  display: none;
+}
+
+.widget .mc4wp-form input {
+  margin-bottom: 6px;
+  margin-bottom: .6rem;
+}
+
+.widget .subscribe-name {
+}
+
+.widget .subscribe-fname,
+.widget .subscribe-lname {
+  width: 49%;
+}
+
+.widget .subscribe-email {
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+10.5 Header
+--------------------------------------------------------------*/
+#masthead {
+  /*background: url("images/large2.jpg") top center;*/
+  /*max-height: 500px;*/
+  /*overflow: hidden;*/
+  /*margin-bottom: 0;*/
+  /*height: 120px;*/
+}
+
+.header-logo {
+  /*-webkit-box-shadow: 0 8px 6px -6px black;*/
+  /*-moz-box-shadow: 0 8px 6px -6px black;*/
+  /*box-shadow: 0 8px 6px -6px black;*/
+}
+
+.navbar {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  clear:both;
+  /*position: relative;*/
+  /*top: 50px;*/
+  /*margin-top: 60px;*/
+  /*-webkit-box-shadow: 0 8px 6px -6px black;*/
+  /*-moz-box-shadow: 0 8px 6px -6px black;*/
+  /*box-shadow: 0 8px 6px -6px black;*/
+}
+
+/*.menu-item a,*/
+/*.menu-item a:visited,*/
+/*.menu-item a:focus,*/
+/*.menu-item a:active {*/
+/*font-weight: bold;*/
+/*color: #555555;*/
+/*}*/
+/*.menu-item a:hover {*/
+/*color: #888888;*/
+/*text-decoration: none;*/
+/*}*/
+
+/*.site-footer a,*/
+/*.site-footer a:visited,*/
+/*.site-footer a:focus,*/
+/*.site-footer a:active {*/
+/*color: #555555;*/
+/*}*/
+/*.site-footer a:hover {*/
+/*color: #888888;*/
+/*text-decoration: none;*/
+/*}*/
+
+/*.menu-item a:hover {*/
+/*background: none;*/
+/*border-bottom: 2px solid purple;*/
+/*}*/
+
+/*.nav > li > a:hover {*/
+/*background-color: transparent;*/
+/*border-radius: 0;*/
+/*}*/
+
+/*.nav > a,*/
+/*.nav .open > a:hover,*/
+/*.nav .open > a:focus {*/
+/*background-color: transparent;*/
+/*}*/
+
+/*--------------------------------------------------------------
+10.6 Footer
+--------------------------------------------------------------*/
+.site-footer {
+  background-color: #212121;
+  border-top: 3px solid #757575;
+  color: #bdbdbd;
+  font-size: 12px;
+  font-size: 1.2rem;
+  padding: 24px 0;
+  padding: 2.4rem 0;
+  margin-top: 24px;
+  margin-top: 2.4rem;
+}
+
+.footer-col {
+  border-top: 1px solid #757575;
+  padding-top: 12px;
+  padding-top: 1.2rem;
+}
+
+.footer-col-header {
+}
+
+.footer-col-title {
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-variant: small-caps;
+  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul,
+.footer-col ol {
+  list-style: none;
+}
+
+.footer-widget {
+  padding-top: 24px;
+  padding-top: 2.4rem;
+}
+
+.footer-widget ul {
+  list-style: none;
+  margin: 0 0 24px 0;
+  margin: 0 0 2.4rem 0;
+}
+
+.footer-widget .widget-title {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/*.main-footer .menu-item a,*/
+/*.main-footer .menu-item a:active,*/
+/*.main-footer .menu-item a:visited {*/
+/*color: #666;*/
+/*}*/
+
+/*.main-footer .menu-item a:hover {*/
+/*color: #999;*/
+/*}*/
+
+
+/*--------------------------------------------------------------
+11.0 Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer {
+  /* Theme Footer (when set to scrolling) */
+  display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+12.0 Media
+--------------------------------------------------------------*/
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+12.1 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin: 0 auto;
+}
+
+.wp-caption-text {
+  text-align: center;
+}
+
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+}
+
+/*--------------------------------------------------------------
+12.2 Galleries
+--------------------------------------------------------------*/
+.gallery {
+  margin-bottom: 1.5em;
+}
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+
+.gallery-caption {
+}
+
+.hero-wrapper {
+  background: url("images/hero-bg.png") repeat-x 0 -140px;
+}
+
+.hero {
+  border: 3px solid white;
+  border-width: 3px 3px 0 3px;
+  margin-bottom: 0;
+}
+
+#breadcrumbs {
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+.page-hero {
+  border: 2px solid #ccc;
+  max-height: 200px;
+  width: 100%;
+  margin-bottom: 24px;
+  /*margin-bottom: 12px;*/
+  /*margin-bottom: 1.2rem;*/
+}
+#breadcrumbs {
+  /*background: #d1d1d1;*/
+  /*border-bottom: 1px solid #c1c1c1;*/
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding-left: 12px;
+  padding-left: 1.2rem;
+}
+
+a.btn {
+  color: #ffffff;
+}
+
+img.full-width {
+  width: 100%;
+}
+
+.rmcr-form {
+  border: 2px solid #aaa;
+  width: 100%;
+  height: 500px;
+}
+
+.site-header {
+  border-top: 5px solid #6F16CA;
+  padding-top: 24px;
+  padding-top: 2.4rem;
+  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.archive .entry-title {
+  /*margin-bottom: 6px;*/
+  /*margin-bottom: .6rem;*/
+  margin-bottom: 0;
+}
+.archive .entry-meta {
+  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
+}
+
+/*.archive .cat-links a:active,*/
+/*.archive .cat-links a:visited {*/
+/*color: #d17105;*/
+/*}*/
+
+.byline,
+.posted-on {
+  color: #888;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+/*.byline a,*/
+/*.byline a:hover,*/
+/*.byline a:active,*/
+/*.byline a:visited {*/
+/*color: #888;*/
+/*}*/
+
+.byline {
+  padding-right: 5px;
+}
+
+.posted-on:before {
+  content: "•";
+  display: inline-block;
+  padding-right: 5px;
+}
+
+/*.entry-title a,*/
+/*.entry-title a:hover,*/
+/*.entry-title a:active,*/
+/*.entry-title a:visited {*/
+/*color: #414141;*/
+/*}*/
+
+
+.archive .entry-thumb {
+  height: 150px;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.archive article.post {
+  border-bottom: 1px solid #e4e4e4;
+  /*padding-bottom: 24px;*/
+  /*padding-bottom: 2.4rem;*/
+}
+
+.archive article.post p {
+  margin-bottom: 0;
+}
+
+.read-more {
+  display: block;
+  margin-top: 12px;
+  margin-top: 1.2rem;
+}
+
+.hide {
+  display: none;
+}
+
+.page-header {
+  border: none;
+}
+
+.dog-carousel {
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+.sub-nav {
+  float: right;
+}
+
+/*.sub-nav a,*/
+/*.sub-nav a:active,*/
+/*.sub-nav a:hover,*/
+/*.sub-nav a:visited,*/
+/*.sub-nav a:focus {*/
+/*color:*/
+/*}*/
+
+.sub-nav ul {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+.sub-nav ul > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.sub-nav li:first-child:before {
+  content: ""
+}
+
+.sub-nav li:before {
+  content: "|";
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.dog-block {
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+.home-title {
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+.widget-title {
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+.dog-slider {
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
+}
+
+#slides {
+  display: none;
+}
+
+.bottom-footer {
+  background-color: #313131;
+  color: #bdbdbd;
+  font-size: 12px;
+  font-size: 1.2rem;
+  padding: 24px 0;
+  padding: 2.4rem 0;
+}
+
+.bottom-footer p {
+  margin-bottom: 0;
+}
+
+/*.navbar > ul > li > a {*/
+/*color: #414141;*/
+/*font-weight: bold;*/
+/*}*/
+
+/*.navbar > ul > li > a:visited,*/
+/*.navbar > ul > li > a:hover {*/
+/*color: #414141;*/
+/*}*/
+
+
+.site-content .row .col-md-9 {
+  /*background-color: #f1f1f1;*/
+  /*border: 1px solid #ddd;*/
+  /*border-radius: 5px;*/
+  /*border-radius: .5rem;*/
+}
+
+/*#breadcrumbs a {*/
+/*text-decoration: underline;*/
+/*}*/

@@ -94,8 +94,10 @@ add_action( 'widgets_init', 'rmcr_widgets_init' );
  */
 function rmcr_scripts() {
 
-	wp_enqueue_style( 'rmcr-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '3.1.1' );
-	wp_enqueue_style( 'rmcr-style', get_stylesheet_uri(), array( 'rmcr-bootstrap' ) );
+	if ( ! is_admin()) {
+		wp_enqueue_style( 'rmcr-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '3.1.1' );
+		wp_enqueue_style( 'rmcr-style', get_stylesheet_uri(), array( 'rmcr-bootstrap' ), '0.1.0' );
+	}
 
 	wp_enqueue_script( 'rmcr-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( 'rmcr-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -141,4 +143,3 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load RMCR Nav Walker
  */
 require get_template_directory() . '/inc/nav-menu-walker.php';
-
