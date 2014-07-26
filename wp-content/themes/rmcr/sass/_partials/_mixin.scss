@@ -29,3 +29,8 @@ $baseline-px: 10px;
     #{$property}: $rem-values;
   }
 }
+
+@mixin img-border() {
+  border: 2px solid $widget-img-border-color;
+}
+
