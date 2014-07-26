@@ -127,12 +127,13 @@ class RMCR_Dog {
 
 		<div class="dog-block">
 
-			<?php $images = get_images_src(); ?>
+			<?php $images = get_images_src( 'medium', false, $this->_id ); ?>
+			<?php $image = array_pop( array_slice($images, 0, 1)); ?>
 
-			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
-				<?php if ( isset( $images[ 'image1' ] ) ) : ?>
+			<a href="<?php echo $this->get_permalink(); ?>">
+				<?php if ( $image ) : ?>
 					<img class="dog-thumb"
-					     src="<?php echo $images[ 'image1' ][ 0 ]; ?>"
+					     src="<?php echo $image[ 0 ]; ?>"
 					     alt="<?php echo $this->get_data( 'name' ) ?>"/>
 				<?php else: ?>
 					<img class="dog-thumb"
@@ -142,7 +143,7 @@ class RMCR_Dog {
 			</a>
 
 			<h3 class="dog-title">
-				<a href="<?php echo get_the_permalink( $this->_id ); ?>">
+				<a href="<?php echo $this->get_permalink(); ?>">
 					<?php echo $this->get_data( 'name' ) ?>
 				</a>
 			</h3>

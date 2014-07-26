@@ -1,6 +1,7 @@
 <?php
 
 class Rds {
+
 	const POSTS_PER_SLIDE = 5;
 
 	private static $initiated = false;
@@ -15,25 +16,8 @@ class Rds {
 	 * Initializes WordPress hooks
 	 */
 	private static function init_hooks() {
-
 		self::$initiated = true;
-
-// Enable internationalisation
-//		load_plugin_textdomain( 'rds', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-
-//To perform action while activating pulgin i.e. creating the thumbnail of first image of  all posts
-//		register_activation_hook( __FILE__, 'rds_activate' );
-
-		// To perform action while publishing post i.e. creating the thumbnail of first image of post
-//		add_action( 'publish_post', array( 'Rds', 'publish_post' ) );
-
-		//Add  the needed styles & script
 		add_action( 'wp_print_styles', array( 'Rds', 'add_style' ) );
-//		add_action( 'wp_head', 'rds_add_custom_style' );
-//		add_action( 'init', 'rds_add_script' );
-
-		// add color picker
-//		add_action( 'admin_enqueue_scripts', 'rds_enqueue_color_picker' );
 	}
 
 	public static function add_custom_style() {
@@ -45,17 +29,10 @@ class Rds {
 		wp_enqueue_style( 'rds-style', WP_PLUGIN_URL . '/rmcr-dogs-slider/css/style.css' );
 	}
 
-
-	public static function show_slider( $category_ids = null, $status_to_show = 'adoptable' ) {
+	public static function show_slider() {
 
 		$recent_posts = get_posts( array(
 			'numberposts' => - 1,
-//		'offset'      => 0,
-//		'category'    => '',
-//		'orderby'     => 'post_date',
-//		'order'       => 'DESC',
-//		'include'     => '',
-//		'exclude'     => '',
 			'post_type'   => 'dog',
 			'post_status' => 'publish'
 		) );
@@ -65,7 +42,6 @@ class Rds {
 		foreach ( $recent_posts as $post ) {
 			$dog = new RMCR_Dog( $post->ID );
 			if ( $dog->get_data( 'status' ) == 'Adoptable' ) {
-				$dog->set_data( 'permalink', get_permalink( $post->ID ) );
 				$dogs[ ] = $dog;
 			}
 		}

@@ -49,43 +49,49 @@
   color: white;
 }
 
+/* Individual Dog Block */
 .dog-block {
-  font-size: 14px;
-  font-size: 1.4rem;
   border: 1px solid #ccc;
   background: #eee;
-  padding: 6px;
+  @include font-size(1.4, 1);
+  @include rem('padding', 6px);
+  @include rem('margin-bottom', 24px);
+  .dog-title, .dog-status, .dog-gender, .dog-age {
+    display: block;
+    @include rem('margin-bottom', 3px);
+  }
+  .dog-thumb {
+    @include img-border();
+    height: 132px;
+    width: 100%;
+  }
+  .dog-title {
+    a {
+      @include font-size(2.0, 1);
+    }
+  }
+  .dog-status {
+    .label {
+      display: block;
+      width: 100%
+    }
+  }
+  .dog-description {
+    margin-bottom:0;
+  }
+}
+.dog-grid {
+  .dog-block {
+    .dog-thumb {
+      height: 102px;
+    }
+  }
 }
 
-.dog-block .dog-thumb {
-  border: 3px solid #dddddd;
-  height: 100px;
-  width: 100%;
-}
 
-.dog-block .dog-title {
-  margin-bottom: 0;
-}
 
-.dog-block .dog-description {
-  margin-bottom:0;
-}
 
-.dog-block span.label {
-  display: block;
-  width: 100%;
-}
 
-.dog-block .dog-title,
-.dog-block .dog-status,
-.dog-block .dog-gender,
-.dog-block .dog-age {
-  display: block;
-  line-height: 16px;
-  line-height: 1.6rem;
-  margin-bottom: 6px;
-  margin-bottom: .6rem;
-}
 
 .product-thumb {
   border: 3px solid #dddddd;
@@ -337,11 +343,6 @@ img.full-width {
 }
 
 .dog-carousel {
-  margin-bottom: 24px;
-  margin-bottom: 2.4rem;
-}
-
-.dog-block {
   margin-bottom: 24px;
   margin-bottom: 2.4rem;
 }

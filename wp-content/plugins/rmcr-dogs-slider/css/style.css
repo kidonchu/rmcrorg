@@ -5,7 +5,7 @@
 
 .rds .window {
 	background: #fffefe;
-	height: 220px;
+	height: 260px;
 	padding-bottom: 20px;
 	position: relative;
 	overflow: hidden;
@@ -17,127 +17,17 @@
 	left: 0;
 }
 
-.rdx .slide {
-	border: 1px solid #aaaaaa;
-	width: 100%;
-}
-
-/*.rds .slider div{*/
-/*float:left;*/
-/*}*/
-
 .rds .slider .col {
 	float: left;
-	/*border-top:0px;*/
-	/*border-left:1px solid #E9E8E8;*/
-	/*border-bottom:0px;*/
-	/*height: 300px;*/
 	padding: 12px;
-	width: 170px;
-}
-
-.rds .col .title,
-.rds .col .thumb {
-	margin-bottom: 6px;
-	margin-bottom: .6rem;
-}
-
-.rds .col .thumb {
-	height: 100px;
-	width: 100%;
-}
-
-.rds .col .content {
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 18px;
-	line-height: 1.8rem;
-}
-
-.rds .col img {
-	-moz-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	background-color: white;
-	border: 4px solid #ebebeb;
-	padding: 0;
-}
-
-.rds .col p.post-title {
-	position: relative;
-	padding: 0px;
-	margin: 0;
-	height: 40px;
-}
-
-.rds .col p.post-title span {
-	font-size: 13px;
-	font-weight: bold;
-	margin: 0px;
-	padding: 0px 10px;
-	height: 40px;
-	overflow: hidden;
-	position: absolute;
-	color: #666666;
-	text-decoration: none;
-	line-height: 18px;
-}
-
-.rds .col p.post-title a {
-	text-decoration: none;
-}
-
-.rds .col p.post-title span:hover {
-	height: auto;
-	overflow: auto;
-	/*background:#fffefe;*/
-	z-index: 100;
-	padding-bottom: 3px;
-	color: #000000;
-}
-
-.rds .col p.post-title a:hover {
-	color: #000000;
-}
-
-.rds .col p.slider-content {
-	position: relative;
-}
-
-.rds .col p.slider-content-img {
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	border: 0px;
-	text-align: center;
-}
-
-.rds .col p.slider-content-both {
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	border: 0px;
-	text-align: left;
-	line-height: 17px;
-	margin-right: 5px;
-	margin-left: 10px;
-}
-
-.rds .col p.slider-content-both img {
-	margin-right: 10px;
-	-moz-border-radius: 1px;
-	-khtml-border-radius: 1px;
-	-webkit-border-radius: 1px;
-	background-color: white;
-	border: 2px solid #ebebeb;
-	padding: 1px;
+	width: 169px;
 }
 
 .rds .paging {
-	font-size: 11px;
+	font-size: 10px;
 	position: absolute;
-	bottom: 10px;
-	right: 10px;
+	bottom: 5px;
+	right: 5px;
 	z-index: 100;
 	text-align: center;
 	padding: 3px 10px;

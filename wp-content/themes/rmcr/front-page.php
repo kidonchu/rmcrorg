@@ -21,7 +21,7 @@
 
 				<header class="clearfix">
 
-					<h2 class="home-title pull-left">
+					<h2 class="widget-title pull-left">
 						Cocker Spaniels Waiting For Your Adoption
 					</h2>
 
