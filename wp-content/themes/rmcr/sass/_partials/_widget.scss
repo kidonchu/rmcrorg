@@ -77,6 +77,19 @@
 .footer-widget {
   border-top: 1px solid #757575;
   @include rem('padding-top', 12px);
+  .widget-title {
+    @include font-size(1.4);
+  }
+  .menu {
+    a {
+      color: $footer-menu-link-color;
+    }
+  }
+  #menu-social-media {
+    a {
+      color: $base-link-color;
+    }
+  }
 }
 
 .footer-col ul,
@@ -84,21 +97,10 @@
   list-style: none;
 }
 
-.footer-widget {
-  padding-top: 24px;
-  padding-top: 2.4rem;
-}
-
 .footer-widget ul {
   list-style: none;
   margin: 0 0 24px 0;
   margin: 0 0 2.4rem 0;
-}
-
-.footer-widget .widget-title {
-  font-size: 14px;
-  font-size: 1.4rem;
-  margin: 0;
 }
 
 /* Donation/Adoption Banners */
