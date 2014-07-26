@@ -163,9 +163,9 @@ function rmcr_register_widget_areas() {
 		'name'          => __( 'Featured Dog', 'rmcr' ),
 		'id'            => 'featured-dog',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget featured-dog-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget rfd-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 class="widget-title rfd-widget-title">',
 		'after_title'   => '</h3>',
 	) );
 	register_sidebar( array(

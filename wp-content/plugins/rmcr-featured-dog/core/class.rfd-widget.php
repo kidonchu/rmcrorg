@@ -11,17 +11,6 @@ class Rfd_Widget extends WP_Widget {
 			__( 'RMCR Featured Dog Widget', 'rfd' ),
 			array( 'description' => __( 'Display featured dog of the week', 'rfd' ) )
 		);
-
-		if ( is_active_widget( false, false, $this->id_base ) ) {
-			add_action( 'wp_head', array( $this, 'css' ) );
-		}
-	}
-
-	function css() {
-		?>
-		<style type="text/css">
-		</style>
-	<?php
 	}
 
 	public function form( $instance ) {
@@ -82,19 +71,37 @@ class Rfd_Widget extends WP_Widget {
 		?>
 
 		<?php if ( $dog ) : ?>
-			<?php echo $title ?>
-			<a href="<?php echo $dog->get_permalink(); ?>" title="<?php echo $dog->get_data( 'name' ); ?>">
-				<?php echo $dog->get_data( 'name' ); ?>
-			</a>
-			<?php $images = get_images_src('full', false, $dog->get_post_id()); ?>
-			<img src="<?php echo $images['images'][0]; ?>" alt="<?php $dog->get_data( 'rmcr_id' ); ?>"/>
-			<p>
-				<strong>Gender:</strong>
-				<?php echo $dog->get_data('gender'); ?><br/>
-				<strong>Age:</strong>
-				<?php echo $dog->get_age_translated(); ?>
-			</p>
-			<p><?php echo $dog->get_data( 'short_description' ); ?></p>
+			<header class="widget-header rfd-widget-header">
+				<?php echo $title; ?>
+			</header>
+			<div class="widget-content rfd-widget-content">
+
+				<header class="widget-sub-header rfd-widget-sub-header">
+					<a href="<?php echo $dog->get_permalink(); ?>"
+					   class="widget-sub-title rfd-widget-sub-title"
+					   title="<?php echo $dog->get_data( 'rmcr_id' ); ?>">
+						<?php echo $dog->get_data( 'name' ); ?>
+					</a>
+				</header>
+
+				<?php $images = get_images_src('full', false, $dog->get_post_id()); ?>
+				<a href="<?php echo $dog->get_permalink(); ?>" title="<?php echo $dog->get_data( 'rmcr_id' ); ?>">
+					<img src="<?php echo $images['image1'][0]; ?>"
+					     class="widget-img rfd-widget-img"
+					     alt="<?php echo $dog->get_data( 'rmcr_id' ); ?>"/>
+				</a>
+
+				<p class="widget-p rfd-widget-p rfd-widget-desc">
+					<strong>Gender:</strong>
+					<?php echo $dog->get_data('gender'); ?><br/>
+					<strong>Age:</strong>
+					<?php echo $dog->get_age_translated(); ?>
+				</p>
+
+				<p class="widget-p rfd-widget-p rfd-widget-short-desc">
+					<?php echo $dog->get_data( 'short_description' ); ?>
+				</p>
+			</div>
 		<?php endif; ?>
 
 		<?php

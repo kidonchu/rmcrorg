@@ -12,8 +12,7 @@
 }
 
 .home-title,
-.entry-sub-title,
-.widget-title {
+.entry-sub-title {
   @include font-size(2.4);
 }
 
@@ -348,11 +347,6 @@ img.full-width {
 }
 
 .home-title {
-  margin-bottom: 24px;
-  margin-bottom: 2.4rem;
-}
-
-.widget-title {
   margin-bottom: 24px;
   margin-bottom: 2.4rem;
 }

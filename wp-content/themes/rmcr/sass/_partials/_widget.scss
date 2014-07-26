@@ -3,15 +3,42 @@
   @include rem('margin', (0, 0, 24px));
 }
 
+.widget-header,
+.widget-title,
+.widget-sub-header,
+.widget-sub-title,
+.widget-img,
+.widget-p {
+  @include rem('margin-bottom', 12px);
+}
+
+.widget-header {
+}
+
+.widget-title {
+  display: block;
+  @include rem('font-size', 24px);
+}
+
+.widget-sub-header {
+}
+
+.widget-sub-title {
+  display: block;
+  @include rem('font-size', 20px);
+}
+
+.widget-img {
+  border: 2px solid $widget-img-border-color;
+}
+
+.widget-p {
+}
+
 /* Footer Menus */
 .footer-widget {
   border-top: 1px solid #757575;
   @include rem('padding-top', 12px);
-}
-
-.widget-title {
-  @include rem('font-size', 16px);
-  @include rem('margin-bottom', 12px);
 }
 
 .footer-col ul,

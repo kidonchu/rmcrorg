@@ -1,0 +1,16 @@
+.rfd-widget {
+}
+
+.rfd-widget-img {
+	float: left;
+	width: 45%;
+}
+
+.rfd-widget-desc {
+	float: right;
+	width: 50%;
+}
+
+.rfd-widget-short-desc {
+	clear: both;
+}
