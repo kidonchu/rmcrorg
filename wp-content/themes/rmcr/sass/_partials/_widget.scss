@@ -1,0 +1,118 @@
+/* General */
+.widget {
+  @include rem('margin', (0, 0, 24px));
+}
+
+/* Footer Menus */
+.footer-widget {
+  border-top: 1px solid #757575;
+  @include rem('padding-top', 12px);
+}
+
+.widget-title {
+  @include rem('font-size', 16px);
+  @include rem('margin-bottom', 12px);
+}
+
+.footer-col ul,
+.footer-col ol {
+  list-style: none;
+}
+
+.footer-widget {
+  padding-top: 24px;
+  padding-top: 2.4rem;
+}
+
+.footer-widget ul {
+  list-style: none;
+  margin: 0 0 24px 0;
+  margin: 0 0 2.4rem 0;
+}
+
+.footer-widget .widget-title {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/* Donation/Adoption Banners */
+
+.banner-widget-img {
+  width: 100%;
+}
+
+/* RMCR Dog Slider */
+.dog-title {
+  @include font-size(2.0);
+}
+
+/* Events */
+.gce-widget-list {
+
+  .gce-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .event-start-date,
+  .event-end-date,
+  .event-location,
+  .event-start-date,
+  .event-description {
+    display: none;
+  }
+
+  .event-title {
+    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
+  }
+
+}
+.gce-list-event {
+  background-color: transparent;
+}
+
+/* MailChimp for WordPress */
+.widget_mc4wp_widget {
+
+  .mc4wp-form label {
+    display: none;
+  }
+
+  .mc4wp-form input {
+    margin-bottom: 6px;
+    margin-bottom: .6rem;
+  }
+
+  .subscribe-fname,
+  .subscribe-lname {
+    width: 49%;
+  }
+
+  .subscribe-email {
+    width: 100%;
+  }
+
+}
+
+
+
+
+/* Make sure select elements fit in widgets */
+.widget select {
+  max-width: 100%;
+}
+
+/* Search widget */
+.widget_search .search-submit {
+  display: none;
+}
+
+.event-promotion-widget {
+  background-color: gold;
+  min-height: 150px;
+  min-width: 100%;
+}
+

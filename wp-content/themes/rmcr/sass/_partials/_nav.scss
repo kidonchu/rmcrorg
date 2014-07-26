@@ -1,0 +1,44 @@
+/* Navbar */
+.navbar {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  clear: both;
+  .nav {
+    > li {
+      float: left;
+      > a {
+        color: $base-navbar-link-text-color;
+        font-weight: bold;
+        @include font-size(2.0);
+        &:hover {
+        }
+      }
+    }
+  }
+}
+
+.sub-nav {
+  color: $sub-nav-divider-color;
+  float: right;
+  a {
+
+  }
+  ul {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+    > li {
+      display: inline-block;
+      padding-right: 10px;
+      &:before {
+        content: "|";
+        display: inline-block;
+        padding-right: 10px;
+      }
+      &:first-child:before {
+        content: ""
+      }
+    }
+  }
+}

@@ -60,7 +60,7 @@
 						'container'       => 'nav',
 						'container_class' => 'navbar navbar-default',
 						'theme_location'  => 'primary',
-						'menu_class'      => 'nav nav-pills pull-right',
+						'menu_class'      => 'nav pull-right',
 						'depth'           => 3,
 						'fallback_cb'     => false,
 						'walker'          => new RMCR_Nav_Walker(),

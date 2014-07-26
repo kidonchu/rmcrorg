@@ -1,0 +1,29 @@
+/* Header */
+.site-header {
+
+}
+
+.site-main {
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  @include rem('border-radius', 5px);
+}
+
+/* Sidebar */
+.sidebar {
+  background: #a9becf;
+  border: 1px solid #94a6b5;
+  @include rem('border-radius', 5px);
+  @include rem('padding', (24px, 12px));
+}
+
+/* Footer */
+.site-footer {
+  background-color: #212121;
+  border-top: 3px solid #757575;
+  color: #bdbdbd;
+  @include font-size(1.2);
+  @include rem('margin-top', 24px);
+  @include rem('padding', (24px, 0));
+}
+

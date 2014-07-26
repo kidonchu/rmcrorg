@@ -118,36 +118,36 @@ function rmcr_register_widget_areas() {
 		'name'          => __( 'Footer 1', 'rmcr' ),
 		'id'            => 'footer-1',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="footer-col-title">',
+		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Footer 2', 'rmcr' ),
 		'id'            => 'footer-2',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="footer-col-title">',
+		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Footer 3', 'rmcr' ),
 		'id'            => 'footer-3',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="footer-col-title">',
+		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Footer 4', 'rmcr' ),
 		'id'            => 'footer-4',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget footer-col %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="footer-col-title">',
+		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
