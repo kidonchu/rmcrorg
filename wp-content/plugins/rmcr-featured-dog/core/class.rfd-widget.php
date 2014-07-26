@@ -101,6 +101,10 @@ class Rfd_Widget extends WP_Widget {
 				<p class="widget-p rfd-widget-p rfd-widget-short-desc">
 					<?php echo $dog->get_data( 'short_description' ); ?>
 				</p>
+
+				<div class="text-right">
+					<?php echo $dog->get_adopt_link(); ?>
+				</div>
 			</div>
 		<?php endif; ?>
 

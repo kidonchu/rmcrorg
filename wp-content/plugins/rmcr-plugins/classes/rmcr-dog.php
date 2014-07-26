@@ -89,7 +89,7 @@ class RMCR_Dog {
 
 	public function get_adopt_link() {
 		if ( $this->get_data( 'name' ) ) {
-			return '<a href="' . get_home_url( null, 'adoption-information' ) . '" class="btn btn-warning pull-right">Adopt ' . $this->get_data( 'name' ) . ' Now</a>';
+			return '<a href="' . get_home_url( null, 'adoption-information' ) . '" class="btn btn-warning">Adopt ' . $this->get_data( 'name' ) . ' Now</a>';
 		}
 		return '';
 	}
