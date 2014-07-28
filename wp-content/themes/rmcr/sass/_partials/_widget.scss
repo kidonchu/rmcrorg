@@ -222,6 +222,9 @@
     @include font-size(2.0,1);
   }
 }
+.product-image {
+  @include rem('margin-bottom', 24px);
+}
 
 .wp_cart_button_wrapper {
   .wp_cart_variation {

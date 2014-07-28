@@ -52,6 +52,13 @@
 							<li>
 								<a href="<?php echo home_url('contact-us'); ?>">Contact Us</a>
 							</li>
+							<li>
+								<?php if($num_products = count($_SESSION['simpleCart'])) : ?>
+									<a href="<?php echo home_url('rmcr-store/cart'); ?>">Shopping Cart (<?php echo $num_products; ?>)</a>
+								<?php else: ?>
+									<a href="<?php echo home_url('rmcr-store/cart'); ?>">Shopping Cart</a>
+								<?php endif; ?>
+							</li>
 						</ul>
 
 					</nav>
