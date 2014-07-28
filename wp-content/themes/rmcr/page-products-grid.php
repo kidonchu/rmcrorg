@@ -42,12 +42,12 @@
 						<?php $id = get_the_ID();
 						$product = new RMCR_Product( $id ); ?>
 
-						<?php // if status of the dog is specified, filter by status ?>
+						<?php // if status disabled, don't show ?>
 						<?php if ( ! $product->get_data( 'status' ) ) : ?>
 							<?php continue; ?>
 						<?php endif; ?>
 
-						<div class="col-md-2">
+						<div class="col-md-12">
 							<?php $product->the_product_block(); ?>
 						</div>
 

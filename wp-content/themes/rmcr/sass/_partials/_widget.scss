@@ -203,9 +203,26 @@
 }
 
 /* Product */
-.product-image {
-  @include rem('margin-bottom', 24px);
+.product-grid {
+  .product-block {
+    border-bottom: 1px solid $post-divider-color;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+  .product-thumb {
+  }
+  .product-thumb-img {
+    border: 3px solid #dddddd;
+    float: left;
+    height: 100px;
+    margin-right: 12px;
+    width: 100px;
+  }
+  .product-title {
+    @include font-size(2.0,1);
+  }
 }
+
 .wp_cart_button_wrapper {
   .wp_cart_variation {
     @include rem('margin-bottom', 12px);

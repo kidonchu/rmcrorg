@@ -5,7 +5,7 @@ class RMCR_Product {
 	private $_id;
 	private $_data = array();
 	private $_fields = array(
-		'status', 'price', 'option1', 'option2', 'option3', 'description',
+		'status', 'price', 'product_image', 'shipping_cost', 'option1', 'option2', 'description',
 	);
 	private $_required_fields = array(
 		'status', 'price', 'description',
@@ -34,7 +34,7 @@ class RMCR_Product {
 		$ret = '';
 		$price = $this->get_data( 'price' );
 		if ( $price ) {
-			$ret = '$' . number_format($price, 2, '.', ',');
+			$ret = '$' . number_format( $price, 2, '.', ',' );
 		}
 		return $ret;
 	}
@@ -61,24 +61,25 @@ class RMCR_Product {
 	public function the_product_block() {
 		?>
 
-		<div class="product-block">
+		<div class="product-block clearfix">
 
-			<?php $images = get_images_src(); ?>
-
-			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
-				<img class="product-thumb"
-				     src="<?php echo $images['image1'][0]; ?>"
-				     alt="<?php the_title(); ?>"/>
+			<a class="product-thumb"
+			   href="<?php echo $this->get_permalink(); ?>"
+			   title="<?php echo get_the_title( $this->_id ); ?>">
+				<img class="product-thumb-img"
+				     src="<?php $data = $this->get_data( 'product_image' );
+				     echo $data; ?>"
+				     alt="<?php echo get_the_title( $this->_id ); ?>"/>
 			</a>
 
-			<a href="<?php echo get_the_permalink( $this->_id ); ?>">
-				<h3 class="product-title">
+			<h3 class="product-title">
+				<a href="<?php echo $this->get_permalink(); ?>" title="<?php echo get_the_title( $this->_id ); ?>">
 					<?php the_title(); ?>
-				</h3>
-			</a>
+				</a>
+			</h3>
 
-			<p class="product-description">
-				<?php echo $this->get_data('description'); ?><br/>
+			<p class="product-desc">
+				<?php echo $this->get_data( 'description' ); ?><br/>
 			</p>
 
 		</div>
@@ -90,8 +91,7 @@ class RMCR_Product {
 		return WP_Post::get_instance( $this->_id );
 	}
 
-	public function get_permalink()
-	{
-		return get_the_permalink($this->_id);
+	public function get_permalink() {
+		return get_the_permalink( $this->_id );
 	}
 }
