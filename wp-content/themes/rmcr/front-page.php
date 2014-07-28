@@ -42,7 +42,7 @@
 
 				<div class="col-md-6">
 
-					<?php dynamic_sidebar( 'featured-dog' ); ?>
+					<?php dynamic_sidebar( 'frontpage-1' ); ?>
 
 				</div>
 
@@ -50,7 +50,7 @@
 
 					<header class="col-header">
 
-						<?php dynamic_sidebar( 'new-story' ) ?>
+						<?php dynamic_sidebar( 'frontpage-2' ) ?>
 
 					</header>
 

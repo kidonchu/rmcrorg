@@ -50,7 +50,7 @@ function register_custom_post_type_product() {
 		'capability_type' => 'post',
 		'map_meta_cap'    => true,
 		'hierarchical'    => false,
-		'rewrite'         => array( 'slug' => 'rmcr-store', 'with_front' => true ),
+		'rewrite'         => array( 'slug' => 'rmcr-products', 'with_front' => true ),
 		'query_var'       => true,
 		'supports'        => array( 'title', 'trackbacks', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'post-formats' ),
 		'labels'          => array(
@@ -80,8 +80,14 @@ function my_cpt_post_types( $post_types ) {
 	return $post_types;
 }
 
+// Custom template for Dog & Product
+function my_images_post_types( $post_types ) {
+	$post_types = array( 'post', 'dog' );
+	return $post_types;
+}
+
 add_filter( 'cpt_post_types', 'my_cpt_post_types' );
-add_filter( 'images_cpt', 'my_cpt_post_types' );
+add_filter( 'images_cpt', 'my_images_post_types' );
 
 /**
  * Register widget area.
@@ -160,22 +166,22 @@ function rmcr_register_widget_areas() {
 		'after_title'   => '</h4>',
 	) );
 	register_sidebar( array(
-		'name'          => __( 'Featured Dog', 'rmcr' ),
-		'id'            => 'featured-dog',
+		'name'          => __( 'Front Page 1', 'rmcr' ),
+		'id'            => 'frontpage-1',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget rfd-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title rfd-widget-title">',
+		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 	register_sidebar( array(
-		'name'          => __( 'New Story', 'rmcr' ),
-		'id'            => 'new-story',
+		'name'          => __( 'Front Page 2', 'rmcr' ),
+		'id'            => 'frontpage-2',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget new-story-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title"><a href="' . esc_url( home_url( 'blog' ) ) . '">',
-		'after_title'   => '</a></h3>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 

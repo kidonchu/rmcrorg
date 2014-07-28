@@ -270,7 +270,7 @@ function print_wp_shopping_cart($args = array()) {
         $output .= '</h2>';
     }
 
-    $output .= '<br /><span id="pinfo" style="display: none; font-weight: bold; color: red;">' . (__("Hit enter to submit new Quantity.", "WSPSC")) . '</span>';
+    $output .= '<span id="pinfo" style="display: none; font-weight: bold; color: red;">' . (__("Hit enter to submit new Quantity.", "WSPSC")) . '</span>';
     $output .= '<table style="width: 100%;">';
 
     $count = 1;
@@ -583,22 +583,22 @@ function print_wp_cart_button_for_product($name, $price, $shipping = 0, $var1 = 
     if (!empty($var1)) {
         $var1_pieces = explode('|', $var1);
         $variation1_name = $var1_pieces[0];
-        $var_output .= '<span class="wp_cart_variation_name">' . $variation1_name . ' : </span>';
+        $var_output .= '<div class="wp_cart_variation"><span class="wp_cart_variation_name">' . $variation1_name . ' : </span>';
         $var_output .= '<select name="variation1" onchange="ReadForm (this.form, false);">';
         for ($i = 1; $i < sizeof($var1_pieces); $i++) {
             $var_output .= '<option value="' . $var1_pieces[$i] . '">' . $var1_pieces[$i] . '</option>';
         }
-        $var_output .= '</select><br />';
+        $var_output .= '</select></div>';
     }
     if (!empty($var2)) {
         $var2_pieces = explode('|', $var2);
         $variation2_name = $var2_pieces[0];
-        $var_output .= '<span class="wp_cart_variation_name">' . $variation2_name . ' : </span>';
+        $var_output .= '<div class="wp_cart_variation"><span class="wp_cart_variation_name">' . $variation2_name . ' : </span>';
         $var_output .= '<select name="variation2" onchange="ReadForm (this.form, false);">';
         for ($i = 1; $i < sizeof($var2_pieces); $i++) {
             $var_output .= '<option value="' . $var2_pieces[$i] . '">' . $var2_pieces[$i] . '</option>';
         }
-        $var_output .= '</select><br />';
+        $var_output .= '</select></div>';
     }
     if (!empty($var3)) {
         $var3_pieces = explode('|', $var3);

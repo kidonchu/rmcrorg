@@ -178,3 +178,40 @@
   min-width: 100%;
 }
 
+/* Shopping Cart */
+.shopping_cart {
+  font-size: 16px !important;
+  font-size: 1.6rem !important;
+  h2 {
+    font-family: $base-font-family;
+    font-size: 20px !important;
+    font-size: 2.0rem !important;
+    line-height: 30px !important;
+    line-height: 3.0rem !important;
+  }
+  > table {
+    th, td {
+      padding: 6px 0 6px 10px;
+    }
+    th {
+      background-color: #cccccc;
+    }
+  }
+  .wp_cart_checkout_button {
+    float: right;
+  }
+}
+
+/* Product */
+.product-image {
+  @include rem('margin-bottom', 24px);
+}
+.wp_cart_button_wrapper {
+  .wp_cart_variation {
+    @include rem('margin-bottom', 12px);
+  }
+  input[type=submit] {
+    @include rem('margin-bottom', 24px);
+  }
+}
+
