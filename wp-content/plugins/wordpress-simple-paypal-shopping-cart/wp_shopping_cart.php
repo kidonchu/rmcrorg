@@ -83,6 +83,11 @@ function reset_wp_cart() {
 }
 
 function wpspc_cart_actions_handler() {
+
+	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+		return;
+	}
+
     unset($_SESSION['wpspsc_cart_action_msg']);
     if (isset($_POST['addcart'])) {
         setcookie("cart_in_use", "true", time() + 21600, "/", COOKIE_DOMAIN);  //useful to not serve cached page when using with a caching plugin
@@ -204,6 +209,15 @@ function wpspc_cart_actions_handler() {
         $coupon_code = strip_tags($_POST['wpspsc_coupon_code']);
         wpspsc_apply_cart_discount($coupon_code);
     }
+
+	redirect_to_previous_page();
+}
+
+function redirect_to_previous_page()
+{
+	$redirection_parameter = 'Location: ' . home_url($_SERVER['REQUEST_URI']);
+	header($redirection_parameter);
+	exit;
 }
 
 function print_wp_shopping_cart($args = array()) {
