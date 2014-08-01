@@ -29,10 +29,14 @@
 
 	<div class="entry-content">
 		<div class="row">
+			<?php if (get_the_post_thumbnail()): ?>
 			<div class="col-md-3">
 				<?php the_post_thumbnail('post-thumbnail', array('class' => 'entry-thumb')); ?>
 			</div>
 			<div class="col-md-9">
+			<?php  else: ?>
+			<div class="col-md-12">
+			<?php endif; ?>
 				<?php the_content( __( '<span class="read-more">Read More...', 'rmcr' ) ); ?>
 			</div>
 		</div>
