@@ -15,7 +15,7 @@
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+	<link rel="shortcut icon" href="/wp-content/themes/rmcr/images/favicon.ico">
 	<?php wp_head(); ?>
 </head>
 
@@ -30,10 +30,30 @@
 <!--		     alt=""/>-->
 
 		<div class="container">
+			<nav class="sub-nav">
+				<ul>
+					<li>
+						<a href="<?php echo home_url('about-us'); ?>">About Us</a>
+					</li>
+					<li>
+						<a href="<?php echo home_url('events'); ?>">Events</a>
+					</li>
+					<li>
+						<a href="<?php echo home_url('contact-us'); ?>">Contact Us</a>
+					</li>
+					<li>
+						<?php if($num_products = count($_SESSION['simpleCart'])) : ?>
+							<a href="<?php echo home_url('rmcr-store/cart'); ?>">Shopping Cart (<?php echo $num_products; ?>)</a>
+						<?php else: ?>
+							<a href="<?php echo home_url('rmcr-store/cart'); ?>">Shopping Cart</a>
+						<?php endif; ?>
+					</li>
+				</ul>
+			</nav>
 			<div class="site-branding row">
 				<div class="col-md-4">
 					<a href="<?php echo home_url(); ?>">
-						<div style="max-height: 120px;overflow-y:hidden;overflow-x:visible;">
+						<div class="logo-container">
 							<img class="header-logo"
 							     src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo-main.png"
 							     alt="<?php bloginfo( 'name' ); ?>">
@@ -41,27 +61,6 @@
 					</a>
 				</div>
 				<div class="col-md-8">
-					<nav class="sub-nav">
-						<ul>
-							<li>
-								<a href="<?php echo home_url('about-us'); ?>">About Us</a>
-							</li>
-							<li>
-								<a href="<?php echo home_url('events'); ?>">Events</a>
-							</li>
-							<li>
-								<a href="<?php echo home_url('contact-us'); ?>">Contact Us</a>
-							</li>
-							<li>
-								<?php if($num_products = count($_SESSION['simpleCart'])) : ?>
-									<a href="<?php echo home_url('rmcr-store/cart'); ?>">Shopping Cart (<?php echo $num_products; ?>)</a>
-								<?php else: ?>
-									<a href="<?php echo home_url('rmcr-store/cart'); ?>">Shopping Cart</a>
-								<?php endif; ?>
-							</li>
-						</ul>
-
-					</nav>
 					<?php
 					wp_nav_menu( array(
 						'container'       => 'nav',
