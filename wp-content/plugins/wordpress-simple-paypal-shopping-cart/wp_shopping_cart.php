@@ -210,7 +210,14 @@ function wpspc_cart_actions_handler() {
         wpspsc_apply_cart_discount($coupon_code);
     }
 
-	redirect_to_previous_page();
+	if (
+		isset($_POST['addcart']) ||
+		isset($_POST['cquantity']) ||
+		isset($_POST['delcart']) ||
+		isset($_POST['wpspsc_coupon_code'])
+	) {
+		redirect_to_previous_page();
+	}
 }
 
 function redirect_to_previous_page()
